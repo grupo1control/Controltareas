@@ -12,7 +12,7 @@
 	<artifactId>ControlTareas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ControlTareas</name>
-	<description>Proyecto demostrativo en Spring Boot</description>
+	<description>Proyecto demostrativo en Spring Boot para PFT8461-801V</description>
 
 	<properties>
 		<java.version>11</java.version>
