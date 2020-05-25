@@ -9,15 +9,22 @@ import java.sql.Date;
  * Clase que representa a la tabla PLAZO
  */
 @Entity
-@Table(name = "PLAZO")
+@Table(
+        name = "PLAZO",
+        uniqueConstraints = @UniqueConstraint(
+                columnNames = {
+                        "contador",
+                        "codigo_TAREA"
+                })
+)
 @Data
 public class Plazo implements Serializable {
 
     /**
      * Cantidad de veces que se a asignado  o modificado un plazo a una tarea
      */
-    @Id
-    @Column(name = "contador")
+    @Basic
+    @Column(name = "contador", nullable = false)
     private Byte contador;
 
     @Basic

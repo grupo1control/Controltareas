@@ -35,18 +35,8 @@ public class Asignacion implements Serializable {
     @Column(name = "nota")
     private String nota;
 
-    @ManyToOne
-    @JoinColumn(name = "codigo_TAREA", referencedColumnName = "codigo")
-    @Id
-    private Tarea tareaFk;
-
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "codigo_UI", referencedColumnName = "codigo_UI"),
-            @JoinColumn(name = "id_USUARIO", referencedColumnName = "id_USUARIO")
-    })
-    @Id
-    private Integrante integranteFk;
+    @EmbeddedId
+    private AsignacionPK pkAsignacion;
 
     @Basic
     @Column(name = "creada", nullable = false)

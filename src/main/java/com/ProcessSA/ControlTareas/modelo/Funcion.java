@@ -29,10 +29,12 @@ public class Funcion {
     @Column(name = "estado")
     private String estado;
 
-    @OneToMany(mappedBy = "funcionFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_FUNCION")
     private Collection<FlujoFuncion> flujosFuncion;
 
-    @OneToMany(mappedBy = "funcionFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_FUNCION")
     private Collection<FlujoTarea> flujosTarea;
 
     @Basic

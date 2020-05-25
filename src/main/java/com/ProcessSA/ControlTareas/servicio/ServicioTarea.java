@@ -1,29 +1,28 @@
 package com.ProcessSA.ControlTareas.servicio;
 
-import com.ProcessSA.ControlTareas.repositorio.RepositorioPersona;
+import com.ProcessSA.ControlTareas.repositorio.RepositorioTarea;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
-import java.sql.Date;
 
 /**
- * Clase para definir los servicio asociados a Persona
+ * Clase para definir los servicios asociados a Tarea
  */
 @Service
 @Transactional(readOnly = true)
-public class ServicioPersona {
+public class ServicioTarea {
 
-    private final RepositorioPersona repositorio;
+    public final RepositorioTarea repositorio;
 
-    public ServicioPersona(RepositorioPersona repositorio) { this.repositorio = repositorio; }
+    public ServicioTarea(RepositorioTarea repositorio) { this.repositorio = repositorio; }
 
     /**
-     * Obtiene una lista de todas las Personas
+     * Obtiene una lista de todas las Tareas
      *
      * @return
      */
-    public ArrayList obtenerPersonas() {
-        ArrayList lista = repositorio.spGetPersonas();
+    public ArrayList obtenerTareas() {
+        ArrayList lista = repositorio.spGetTareas();
         System.out.println("Glosa de respuesta: " + lista.get(0));
         System.out.println("Código de estado: " + lista.get(1));
         System.out.println("Lista de resultados:");
@@ -32,17 +31,17 @@ public class ServicioPersona {
     }
 
     /**
-     * Ingresa o actualiza un registro de Persona
+     * Ingresa o actualiza un registro de Tarea
      *
-     * @param rut
+     * @param codigo
      * @param nombre
-     * @param apellido
-     * @param natalicio
+     * @param descripcion
+     * @param estado
      * @return
      */
     @Transactional
-    public ArrayList registroPersona(String rut, String nombre, String apellido, Date natalicio) {
-        ArrayList registro = repositorio.spRegPersona(rut, nombre, apellido, natalicio);
+    public ArrayList registroTarea(Long codigo, String nombre, String descripcion, String estado) {
+        ArrayList registro = repositorio.spRegTarea(codigo, nombre, descripcion, estado);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
         System.out.println("Identificador de salida: " + registro.get(2));
@@ -50,27 +49,27 @@ public class ServicioPersona {
     }
 
     /**
-     * Elimina un registro de Persona
+     * Elimina un registro de Tarea
      *
-     * @param rut
+     * @param codigo
      * @return
      */
     @Transactional
-    public ArrayList eliminarPersona(String rut) {
-        ArrayList retiro = repositorio.spDelPersona(rut);
+    public ArrayList eliminarTarea(long codigo) {
+        ArrayList retiro = repositorio.spDelTarea(codigo);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
         return retiro;
     }
 
     /**
-     * Obtiene un registro de una Persona
+     * Obtiene un registro de una Tarea
      *
-     * @param rut
+     * @param codigo
      * @return
      */
-    public ArrayList obtenerPersona(String rut) {
-        ArrayList entidad = repositorio.spGetPersona(rut);
+    public ArrayList obtenerTarea(Long codigo) {
+        ArrayList entidad = repositorio.spGetTarea(codigo);
         System.out.println("Glosa de respuesta: " + entidad.get(0));
         System.out.println("Código de estado: " + entidad.get(1));
         System.out.println("Resultado: \n" + entidad.get(2));

@@ -34,12 +34,12 @@ public class Contrato implements Serializable {
     @ManyToOne
     @JoinColumn(name = "RUT_EMPRESA", referencedColumnName = "RUT")
     @Id
-    private Empresa empresaFk;
+    private Empresa fkEmpresa;
 
     @ManyToOne
     @JoinColumn(name = "RUT_PERSONA", referencedColumnName = "RUT", nullable = false)
     @Id
-    private Persona personaFk;
+    private Persona fkPersona;
 
     @Basic
     @Column(name = "creado", nullable = false)

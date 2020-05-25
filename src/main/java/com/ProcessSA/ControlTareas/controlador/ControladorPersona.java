@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 
 /**
- * Clase que reprresenta el servicio REST de Persona
+ * Clase que representa el servicio REST de Persona
  */
 @RestController
 @RequestMapping("/api/persona")
 @Api(tags = "Persona")
 public class ControladorPersona {
+
     private final ServicioPersona servicio;
 
     public ControladorPersona(ServicioPersona servicio) {
@@ -32,7 +33,7 @@ public class ControladorPersona {
     public ResponseEntity<?> obtenerListaPersonas() { return ResponseEntity.ok(this.servicio.obtenerPersonas()); }
 
     @PostMapping("/ingresar")
-    @ApiOperation(value = "Ingresar Persona", notes = "Servicio para ingresar a una nueva Persona")
+    @ApiOperation(value = "Ingresar Persona", notes = "Servicio para ingresar una nueva Persona")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Persona creada correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
@@ -42,7 +43,7 @@ public class ControladorPersona {
     }
 
     @PutMapping("/actualizar/{rut}")
-    @ApiOperation(value = "Actualizar Persona", notes = "Servicio para actualizar a una Persona")
+    @ApiOperation(value = "Actualizar Persona", notes = "Servicio para actualizar una Persona")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Persona actualizada correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
@@ -52,10 +53,10 @@ public class ControladorPersona {
     }
 
     @DeleteMapping("/eliminar/{rut}")
-    @ApiOperation(value = "Eliminar Persona", notes = "Servicio para eliminar a una Persona")
+    @ApiOperation(value = "Eliminar Persona", notes = "Servicio para eliminar una Persona")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Persona eliminado correctamente"),
-            @ApiResponse(code = 404, message = "Persona no encontrado")
+            @ApiResponse(code = 201, message = "Persona eliminada correctamente"),
+            @ApiResponse(code = 404, message = "Persona no encontrada")
     })
     public ResponseEntity<?> eliminarPersona(@PathVariable("rut") String rut) {
         return new ResponseEntity<>(this.servicio.eliminarPersona(rut), HttpStatus.OK);
@@ -64,7 +65,7 @@ public class ControladorPersona {
     @GetMapping("/{rut}")
     @ApiOperation(value = "Obtener una Persona", notes = "Servicio para obtener datos de una Persona")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Persona encontradas correctamente"),
+            @ApiResponse(code = 201, message = "Persona encontrada correctamente"),
             @ApiResponse(code = 404, message = "Persona no encontradas")
     })
     public ResponseEntity<?> obtenerPersona(@PathVariable("rut") String rut) {

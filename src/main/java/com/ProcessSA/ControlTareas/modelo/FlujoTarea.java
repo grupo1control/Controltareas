@@ -10,19 +10,8 @@ import java.sql.Date;
 @Data
 public class FlujoTarea implements Serializable {
 
-    @Id
-    @Column(name = "indice")
-    private Byte indice;
-
-    @ManyToOne
-    @JoinColumn(name = "codigo_FUNCION", referencedColumnName = "codigo")
-    @Id
-    private Funcion funcionFk;
-
-    @ManyToOne
-    @JoinColumn(name = "codigo_TAREA", referencedColumnName = "codigo")
-    @Id
-    private Tarea tareaFk;
+    @EmbeddedId
+    private FlujoTareaPK pkFlujoTarea;
 
     @Basic
     @Column(name = "creado", nullable = false)

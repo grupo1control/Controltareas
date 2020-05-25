@@ -20,7 +20,7 @@ public class Administrador implements Serializable {
     @Id
     private Usuario usuarioFk;
 
-    @OneToMany(mappedBy = "administradorFk", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fkAdministrador", cascade = CascadeType.ALL)
     private Collection<Proyecto> proyectos;
 
     @Basic

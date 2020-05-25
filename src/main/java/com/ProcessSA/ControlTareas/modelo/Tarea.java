@@ -29,10 +29,12 @@ public class Tarea {
     @Column(name = "estado", nullable = false)
     private String estado;
 
-    @OneToMany(mappedBy = "tareaFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_TAREA")
     private Collection<Asignacion> asignaciones;
 
-    @OneToMany(mappedBy = "tareaFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_TAREA")
     private Collection<FlujoTarea> flujosTarea;
 
     @OneToMany(mappedBy = "tareaFk", cascade = CascadeType.ALL)

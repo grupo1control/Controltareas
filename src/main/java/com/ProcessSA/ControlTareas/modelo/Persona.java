@@ -28,10 +28,10 @@ public class Persona {
     @Column(name = "natalicio", nullable = false)
     private Date natalicio;
 
-    @OneToMany(mappedBy = "personaFk", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fkPersona", cascade = CascadeType.ALL)
     private Collection<Contrato> contratos;
 
-    @OneToMany(mappedBy = "personaFk", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "fkPersona", cascade = CascadeType.ALL)
     private Collection<Usuario> usuarios;
 
     @Basic

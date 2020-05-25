@@ -13,19 +13,8 @@ import java.sql.Date;
 @Data
 public class FlujoFuncion implements Serializable {
 
-    @Id
-    @Column(name = "indice")
-    private Byte indice;
-
-    @ManyToOne
-    @JoinColumn(name = "codigo_PROCESO", referencedColumnName = "codigo")
-    @Id
-    private Proceso procesoFk;
-
-    @ManyToOne
-    @JoinColumn(name = "codigo_FUNCION", referencedColumnName = "codigo")
-    @Id
-    private Funcion funcionFk;
+    @EmbeddedId
+    private FlujoFuncionPK pkFlujoFuncion;
 
     @Basic
     @Column(name = "creado", nullable = false)

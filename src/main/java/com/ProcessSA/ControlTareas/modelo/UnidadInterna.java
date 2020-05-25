@@ -25,7 +25,8 @@ public class UnidadInterna {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @OneToMany(mappedBy = "unidadInternaFk")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_UI")
     private Collection<Integrante> integrantes;
 
     @OneToMany(mappedBy = "unidadInternaFk")

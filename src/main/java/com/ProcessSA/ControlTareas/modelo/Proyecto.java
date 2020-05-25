@@ -30,11 +30,11 @@ public class Proyecto {
 
     @ManyToOne
     @JoinColumn(name = "rut_EMPRESA", referencedColumnName = "rut")
-    private Empresa empresaFk;
+    private Empresa fkEmpresa;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_ADMINISTRADOR", referencedColumnName = "id")
-    private Administrador administradorFk;
+    private Administrador fkAdministrador;
 
     @Basic
     @Column(name = "creado", nullable = false)

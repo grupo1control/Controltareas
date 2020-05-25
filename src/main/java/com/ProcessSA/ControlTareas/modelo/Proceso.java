@@ -33,7 +33,8 @@ public class Proceso {
     @Column(name = "estado")
     private String estado;
 
-    @OneToMany(mappedBy = "procesoFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_PROCESO")
     private Collection<FlujoFuncion> flujosFuncion;
 
     @ManyToOne

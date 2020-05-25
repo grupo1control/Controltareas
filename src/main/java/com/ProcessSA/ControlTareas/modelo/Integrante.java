@@ -12,20 +12,17 @@ import java.util.Collection;
 @Entity
 @Table(name = "INTEGRANTE")
 @Data
-public class Integrante implements Serializable {
+public class Integrante {
 
-    @OneToMany(mappedBy = "integranteFk", cascade = CascadeType.ALL)
+    @EmbeddedId
+    private IntegrantePK pkIntegrante;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumns({
+            @JoinColumn(name = "id_USUARIO"),
+            @JoinColumn(name = "codigo_UI")
+    })
     private Collection<Asignacion> asignaciones;
-
-    @ManyToOne
-    @JoinColumn(name = "id_USUARIO", referencedColumnName = "id")
-    @Id
-    private Usuario usuarioFk;
-
-    @ManyToOne
-    @JoinColumn(name = "codigo_UI", referencedColumnName = "codigo")
-    @Id
-    private UnidadInterna unidadInternaFk;
 
     @Basic
     @Column(name = "creado", nullable = false)
@@ -34,5 +31,9 @@ public class Integrante implements Serializable {
     @Basic
     @Column(name = "modificado")
     private Date modificado;
+
+
+
+
 
 }

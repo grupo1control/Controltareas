@@ -43,12 +43,13 @@ public class Usuario {
     @OneToOne(mappedBy = "usuarioFk", cascade = CascadeType.ALL)
     private Funcionario funcionario;
 
-    @OneToMany(mappedBy = "usuarioFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_USUARIO")
     private Collection<Integrante> integrantes;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "rut_PERSONA", referencedColumnName = "rut")
-    private Persona personaFk;
+    private Persona fkPersona;
 
     @Basic
     @Column(name = "creado", nullable = false)
