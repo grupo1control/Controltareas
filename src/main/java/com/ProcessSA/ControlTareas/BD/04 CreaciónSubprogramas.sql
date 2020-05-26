@@ -1,3 +1,99 @@
+--------------------------------------------------------
+--  DDL for Trigger TRG_CR_FUNCION
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER "TRG_CR_FUNCION"
+    BEFORE INSERT
+    ON funcion
+    FOR EACH ROW
+BEGIN
+    SELECT SEQ_cod_funcion.nextval
+    INTO :new.codigo
+    FROM DUAL;
+END;
+/
+ALTER TRIGGER "TRG_CR_FUNCION" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TRG_CR_PROCESO
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER "TRG_CR_PROCESO"
+    BEFORE INSERT
+    ON proceso
+    FOR EACH ROW
+BEGIN
+    SELECT SEQ_cod_proceso.nextval
+    INTO :new.codigo
+    FROM DUAL;
+END;
+
+/
+ALTER TRIGGER "TRG_CR_PROCESO" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TRG_CR_PROYECTO
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER "TRG_CR_PROYECTO"
+    BEFORE INSERT
+    ON proyecto
+    FOR EACH ROW
+BEGIN
+    SELECT SEQ_cod_proyecto.nextval
+    INTO :new.codigo
+    FROM DUAL;
+END;
+
+/
+ALTER TRIGGER "TRG_CR_PROYECTO" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TRG_CR_TAREA
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER "TRG_CR_TAREA"
+    BEFORE INSERT
+    ON tarea
+    FOR EACH ROW
+BEGIN
+    SELECT SEQ_cod_tarea.nextval
+    INTO :new.codigo
+    FROM DUAL;
+END;
+/
+ALTER TRIGGER "TRG_CR_TAREA" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TRG_CR_UI
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER "TRG_CR_UI"
+    BEFORE INSERT
+    ON UNIDAD_INTERNA
+    FOR EACH ROW
+BEGIN
+    SELECT SEQ_cod_ui.nextval
+    INTO :new.codigo
+    FROM DUAL;
+END;
+
+/
+ALTER TRIGGER "TRG_CR_UI" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger TRG_CR_USUARIO
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER "TRG_CR_USUARIO"
+    BEFORE INSERT
+    ON USUARIO
+    FOR EACH ROW
+BEGIN
+    SELECT SEQ_id_usuario.nextval
+    INTO :new.id
+    FROM DUAL;
+END;
+/
+ALTER TRIGGER "TRG_CR_USUARIO" ENABLE;
+
+-- Función FN_GET_GLOSA_ERROR
+
 create FUNCTION "FN_GET_GLOSA_ERROR" RETURN VARCHAR2
 AS
 
@@ -26,6 +122,8 @@ EXCEPTION
         RETURN NULL;
 END FN_GET_GLOSA_ERROR;
 /
+
+-- Procedimientos almacenados CRUD
 
 create PROCEDURE "SP_GET_PERSONAS" (
     OUT_GLOSA OUT VARCHAR2,

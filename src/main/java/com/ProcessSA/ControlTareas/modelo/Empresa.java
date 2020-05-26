@@ -30,7 +30,8 @@ public class Empresa {
     @Column(name = "giro_comercial")
     private String giroComercial;
 
-    @OneToMany(mappedBy = "fkEmpresa", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rut_Empresa")
     private Collection<Contrato> contratos;
 
     @OneToMany(mappedBy = "fkEmpresa")

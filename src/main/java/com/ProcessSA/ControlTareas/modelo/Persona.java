@@ -28,7 +28,8 @@ public class Persona {
     @Column(name = "natalicio", nullable = false)
     private Date natalicio;
 
-    @OneToMany(mappedBy = "fkPersona", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rut_PERSONA")
     private Collection<Contrato> contratos;
 
     @OneToMany(mappedBy = "fkPersona", cascade = CascadeType.ALL)
