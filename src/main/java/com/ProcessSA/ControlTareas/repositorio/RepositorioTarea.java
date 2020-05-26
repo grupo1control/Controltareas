@@ -159,7 +159,7 @@ public class RepositorioTarea {
         consultaProcedimiento.registerStoredProcedureParameter("IN_ESTADO", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_ID_SALIDA", Long.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", Long.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_CODIGO", codigo);
         consultaProcedimiento.setParameter("IN_NOMBRE", nombre);
@@ -170,7 +170,7 @@ public class RepositorioTarea {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Long codigoSalida = (Long) consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
+        Long codigoSalida = (Long) consultaProcedimiento.getOutputParameterValue("OUT_COD_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);

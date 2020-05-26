@@ -37,7 +37,8 @@ public class Tarea {
     @JoinColumn(name = "codigo_TAREA")
     private Collection<FlujoTarea> flujosTarea;
 
-    @OneToMany(mappedBy = "tareaFk", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codigo_TAREA")
     private Collection<Plazo> plazos;
 
     @Basic

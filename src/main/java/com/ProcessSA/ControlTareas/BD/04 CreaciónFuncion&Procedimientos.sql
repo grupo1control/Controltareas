@@ -1027,8 +1027,7 @@ EXCEPTION
 END SP_GET_EMPRESAS;
 /
 
-create PROCEDURE "SP_GET_FLUJO_F" (
-    IN_indice IN FLUJO_FUNCION.INDICE%TYPE,
+create PROCEDURE               "SP_GET_FLUJO_F" (
     IN_codigo_funcion IN FLUJO_FUNCION.CODIGO_FUNCION%TYPE,
     IN_codigo_proceso IN FLUJO_FUNCION.CODIGO_PROCESO%TYPE,
     OUT_GLOSA OUT VARCHAR2,
@@ -1037,7 +1036,7 @@ create PROCEDURE "SP_GET_FLUJO_F" (
 ) AS
 /**************************************************************************************************************
    NAME:       	SP_GET_FLUJO_F
-   PURPOSE		Retorna un registro de un FLUJO_FUNCION con los códigos y el indice ingresados
+   PURPOSE		Retorna los registros de FLUJO_FUNCION con los códigos ingresados
 
    REVISIONS:
    Ver          Date           Author                               Description
@@ -1052,11 +1051,11 @@ BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_GET_FLUJO_F ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion AND INDICE = IN_indice AND CODIGO_PROCESO = IN_codigo_proceso;
+    SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
 
     IF hay_registro = 1 THEN
         OPEN OUT_FLUJO_T FOR
-            SELECT * FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion AND INDICE = IN_indice AND CODIGO_PROCESO = IN_codigo_proceso;
+            SELECT * FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
     ELSE
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Flujo no registrado';
@@ -1134,8 +1133,7 @@ EXCEPTION
 END SP_GET_FLUJOS_T;
 /
 
-create PROCEDURE "SP_GET_FLUJO_T" (
-    IN_indice IN FLUJO_TAREA.INDICE%TYPE,
+create PROCEDURE               "SP_GET_FLUJO_T" (
     IN_codigo_funcion IN FLUJO_TAREA.CODIGO_FUNCION%TYPE,
     IN_codigo_tarea IN FLUJO_TAREA.CODIGO_TAREA%TYPE,
     OUT_GLOSA OUT VARCHAR2,
@@ -1144,7 +1142,7 @@ create PROCEDURE "SP_GET_FLUJO_T" (
 ) AS
 /**************************************************************************************************************
    NAME:       	SP_GET_FLUJO_T
-   PURPOSE		Retorna un registro de un FLUJO_TAREA con los códigos y el indice ingresados
+   PURPOSE		Retorna los registros de FLUJO_TAREA con los códigos ingresados
 
    REVISIONS:
    Ver          Date           Author                               Description
@@ -1159,11 +1157,11 @@ BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_GET_FLUJO_T ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion AND INDICE = IN_indice AND CODIGO_TAREA = IN_codigo_tarea;
+    SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_TAREA = IN_codigo_tarea;
 
     IF hay_registro = 1 THEN
         OPEN OUT_FLUJO_T FOR
-            SELECT * FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion AND INDICE = IN_indice AND CODIGO_TAREA = IN_codigo_tarea;
+            SELECT * FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_TAREA = IN_codigo_tarea;
     ELSE
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Flujo no registrado';
@@ -2059,7 +2057,7 @@ EXCEPTION
 END SP_REG_EMPRESA;
 /
 
-create PROCEDURE "SP_REG_FLUJO_F" (
+create PROCEDURE               "SP_REG_FLUJO_F" (
     in_indice IN FLUJO_FUNCION.INDICE%TYPE,
     in_codigo_proceso IN FLUJO_FUNCION.CODIGO_PROCESO%TYPE,
     in_codigo_FUNCION IN FLUJO_FUNCION.CODIGO_FUNCION%TYPE,
@@ -2085,14 +2083,14 @@ BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_REG_FLUJO_F ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = in_codigo_FUNCION AND CODIGO_PROCESO = in_codigo_proceso AND INDICE = in_indice;
+    SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = in_codigo_FUNCION AND CODIGO_PROCESO = in_codigo_proceso;
 
     IF (hay_registro = 1) THEN
         UPDATE FLUJO_FUNCION
         SET
             INDICE = in_indice,
             MODIFICADO = SYSDATE()
-        WHERE CODIGO_FUNCION = in_codigo_FUNCION AND CODIGO_PROCESO = in_codigo_proceso AND INDICE = in_indice
+        WHERE CODIGO_FUNCION = in_codigo_FUNCION AND CODIGO_PROCESO = in_codigo_proceso
         RETURNING INDICE INTO OUT_index_SALIDA;
         OUT_GLOSA := OUT_GLOSA || ', se ha actualizado el registro';
     ELSE
@@ -2110,7 +2108,7 @@ EXCEPTION
 END SP_REG_FLUJO_F;
 /
 
-create PROCEDURE "SP_REG_FLUJO_T" (
+create PROCEDURE               "SP_REG_FLUJO_T" (
     in_indice IN FLUJO_TAREA.INDICE%TYPE,
     in_codigo_funcion IN FLUJO_TAREA.CODIGO_FUNCION%TYPE,
     in_codigo_tarea IN FLUJO_TAREA.CODIGO_TAREA%TYPE,
@@ -2136,14 +2134,14 @@ BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_REG_FLUJO_T ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE CODIGO_TAREA = in_codigo_tarea AND CODIGO_FUNCION = in_codigo_funcion AND INDICE = in_indice;
+    SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE CODIGO_TAREA = in_codigo_tarea AND CODIGO_FUNCION = in_codigo_funcion;
 
     IF (hay_registro = 1) THEN
         UPDATE FLUJO_TAREA
         SET
             INDICE = in_indice,
             MODIFICADO = SYSDATE()
-        WHERE CODIGO_TAREA = in_codigo_tarea AND CODIGO_FUNCION = in_codigo_funcion AND INDICE = in_indice
+        WHERE CODIGO_TAREA = in_codigo_tarea AND CODIGO_FUNCION = in_codigo_funcion
         RETURNING INDICE INTO OUT_index_SALIDA;
         OUT_GLOSA := OUT_GLOSA || ', se ha actualizado el registro';
     ELSE
@@ -2717,4 +2715,3 @@ EXCEPTION
 
 END SP_GET_FUNCIONES;
 /
-

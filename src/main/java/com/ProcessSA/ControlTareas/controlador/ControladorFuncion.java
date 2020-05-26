@@ -71,5 +71,4 @@ public class ControladorFuncion {
         return ResponseEntity.ok(this.servicio.obtenerFuncion(codigo));
     }
 
-
 }

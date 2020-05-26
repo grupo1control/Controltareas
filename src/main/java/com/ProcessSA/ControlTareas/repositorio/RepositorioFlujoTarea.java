@@ -2,6 +2,7 @@ package com.ProcessSA.ControlTareas.repositorio;
 
 import com.ProcessSA.ControlTareas.modelo.FlujoTarea;
 import com.ProcessSA.ControlTareas.modelo.FlujoTareaPK;
+import com.ProcessSA.ControlTareas.modelo.Funcion;
 import com.ProcessSA.ControlTareas.modelo.Tarea;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
@@ -39,7 +40,7 @@ public class RepositorioFlujoTarea {
         // Registrar los parámetros de salida
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_FLUJO_TS", void.class, ParameterMode.REF_CURSOR);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_FLUJOS", void.class, ParameterMode.REF_CURSOR);
         // Ejecutar procedimiento
         consultaProcedimiento.execute();
         // Obtener los valores de salida
@@ -81,14 +82,13 @@ public class RepositorioFlujoTarea {
                                 ).get(2)
                 );
 
-                /*
+
                 pkEntidad.setFkFuncion(
                         (Funcion) new RepositorioFuncion(this.gestorDeEntidad)
                                 .spGetFuncion(
                                         rs.getLong("codigo_FUNCION")
                                 ).get(2)
                 );
-                */
 
                 entidad.setPkFlujoTarea(pkEntidad);
                 entidad.setCreado(rs.getDate("creado"));
@@ -106,24 +106,21 @@ public class RepositorioFlujoTarea {
 
     /**
      * Ejecuta el procedimiento almacenado SP_GET_FLUJO_T,
-     * para obtener los datos de un FlujoTarea,
+     * para obtener los datos de FlujoTarea,
      * y devuelve un objeto ArrayList con los resultados obtenidos
-     * @param indice
      * @param codigoTarea
      * @param codigoFuncion
      * @return
      */
-    public ArrayList spGetFlujoT(byte indice, long codigoTarea, long codigoFuncion) {
+    public ArrayList spGetFlujoT(long codigoTarea, long codigoFuncion) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_FLUJO_T");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_INDICE", byte.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_FUNCION", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_FLUJO_T", void.class, ParameterMode.REF_CURSOR);
         // Asignar valor de entrada
-        consultaProcedimiento.setParameter("IN_INDICE", indice);
         consultaProcedimiento.setParameter("IN_CODIGO_TAREA", codigoTarea);
         consultaProcedimiento.setParameter("IN_CODIGO_FUNCION", codigoFuncion);
         // Ejecutar procedimiento
@@ -131,12 +128,12 @@ public class RepositorioFlujoTarea {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Object flujo = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_FLUJO_T")).get(0);
+        List<?> flujos = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_FLUJO_T"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.add(flujo);
+        respuesta.addAll(flujos);
         return respuesta;
     }
 
@@ -191,7 +188,7 @@ public class RepositorioFlujoTarea {
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_FUNCION", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_ID_SALIDA", Long.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_INDEX_SALIDA", byte.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_INDICE", indice);
         consultaProcedimiento.setParameter("IN_CODIGO_TAREA", codigoTarea);
@@ -201,7 +198,7 @@ public class RepositorioFlujoTarea {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        byte codigoSalida = (byte) consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
+        byte codigoSalida = (byte) consultaProcedimiento.getOutputParameterValue("OUT_INDEX_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
