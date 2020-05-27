@@ -45,7 +45,7 @@ public class RepositorioUnidadInterna {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        List<?> Uinternas = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_TAREAS"));
+        List<?> Uinternas = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_ALL_UI"));
         // Encapsular los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
@@ -104,12 +104,12 @@ public class RepositorioUnidadInterna {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Object unidadInterna = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_UI")).get(0);
+        List<?> unidadInterna = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_UI"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.add(unidadInterna);
+        respuesta.addAll(unidadInterna);
         return respuesta;
     }
 
@@ -121,7 +121,7 @@ public class RepositorioUnidadInterna {
      * @return
      */
     public ArrayList spDelUi(Long codigo) {
-        StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_TAREA");
+        StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_UI");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);

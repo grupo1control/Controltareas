@@ -103,12 +103,12 @@ public class RepositorioTarea {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Object tarea = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_TAREA")).get(0);
+        List<?> tarea = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_TAREA"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.add(tarea);
+        respuesta.addAll(tarea);
         return respuesta;
     }
 
