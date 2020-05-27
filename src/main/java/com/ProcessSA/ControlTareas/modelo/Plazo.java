@@ -22,9 +22,4 @@ public class Plazo {
     @Basic
     @Column(name = "creado", nullable = false)
     private Date creado;
-
-    @Basic
-    @Column(name = "modificado")
-    private Date modificado;
-
 }

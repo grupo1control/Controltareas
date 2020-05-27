@@ -1,7 +1,6 @@
 package com.ProcessSA.ControlTareas.modelo;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

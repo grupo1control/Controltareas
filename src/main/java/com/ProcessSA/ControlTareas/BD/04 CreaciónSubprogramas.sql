@@ -2452,7 +2452,6 @@ END SP_REG_PERSONA;
 create or replace PROCEDURE "SP_REG_PLAZO" (
     in_fecha IN PLAZO.FECHA%TYPE,
     in_codigo_tarea IN PLAZO.CODIGO_TAREA%TYPE,
-    in_contador IN PLAZO.contador%TYPE DEFAULT 0,
     OUT_GLOSA OUT VARCHAR2,
     OUT_ESTADO OUT NUMBER,
     OUT_cod_SALIDA OUT PLAZO.CODIGO_TAREA%TYPE
@@ -2469,33 +2468,16 @@ create or replace PROCEDURE "SP_REG_PLAZO" (
 
 ***************************************************************************************************************/
 
-    hay_registro NUMBER(1);
-
 BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_REG_PLAZO ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM PLAZO WHERE CODIGO_TAREA = in_codigo_tarea AND contador = in_contador;
-
-    IF (hay_registro = 1) THEN
-        UPDATE PLAZO
-        SET
-            FECHA = in_fecha,
-            contador = (SELECT NVL(MAX(contador), 0) + 1  FROM PLAZO WHERE CODIGO_TAREA =  in_codigo_tarea),
-            modificado = SYSDATE()
-        WHERE CODIGO_TAREA = in_codigo_tarea AND contador = in_contador
-        RETURNING codigo_tarea INTO OUT_cod_SALIDA;
-        OUT_GLOSA := OUT_GLOSA || ', se ha actualizado el registro';
-    ELSE
-        INSERT INTO PLAZO (codigo_tarea, fecha, contador, creado)
-        VALUES (
-                   in_codigo_tarea,
-                   in_fecha,
-                   (SELECT NVL(MAX(contador), 0) + 1 FROM PLAZO WHERE CODIGO_TAREA = in_codigo_tarea),
-                   SYSDATE())
-        RETURNING codigo_tarea INTO OUT_cod_SALIDA;
-        OUT_GLOSA := OUT_GLOSA || ', se ha ingresado un nuevo registro';
-    END IF;
+    INSERT INTO PLAZO (codigo_tarea, fecha, contador, creado)
+    VALUES (in_codigo_tarea, in_fecha,
+            (SELECT NVL(MAX(contador), 0) + 1 FROM PLAZO WHERE CODIGO_TAREA = in_codigo_tarea),
+            SYSDATE())
+    RETURNING contador INTO OUT_cod_SALIDA;
+    OUT_GLOSA := OUT_GLOSA || ', se ha ingresado un nuevo registro';
 
 EXCEPTION
     WHEN OTHERS THEN
