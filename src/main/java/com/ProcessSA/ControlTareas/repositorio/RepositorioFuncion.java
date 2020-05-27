@@ -103,12 +103,12 @@ public class RepositorioFuncion {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Object funcion = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_FUNCION")).get(0);
+        List<?> funcion = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_FUNCION"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.add(funcion);
+        respuesta.addAll(funcion);
         return respuesta;
     }
 

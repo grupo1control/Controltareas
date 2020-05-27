@@ -128,12 +128,12 @@ public class RepositorioFlujoTarea {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        List<?> flujos = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_FLUJO_T"));
+        List<?> flujo = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_FLUJO_T"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.addAll(flujos);
+        respuesta.addAll(flujo);
         return respuesta;
     }
 

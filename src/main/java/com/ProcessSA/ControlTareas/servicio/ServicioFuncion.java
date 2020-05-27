@@ -23,8 +23,6 @@ public class ServicioFuncion {
      */
     public ArrayList obtenerFunciones() {
         ArrayList lista = repositorio.spGetFunciones();
-        System.out.println("Glosa de respuesta: " + lista.get(0));
-        System.out.println("Código de estado: " + lista.get(1));
         System.out.println("Lista de resultados:");
         lista.forEach(item -> System.out.println(item));
         return lista;
@@ -70,9 +68,7 @@ public class ServicioFuncion {
      */
     public ArrayList obtenerFuncion(Long codigo) {
         ArrayList entidad = repositorio.spGetFuncion(codigo);
-        System.out.println("Glosa de respuesta: " + entidad.get(0));
-        System.out.println("Código de estado: " + entidad.get(1));
-        System.out.println("Resultado: \n" + entidad.get(2));
+        System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
 
