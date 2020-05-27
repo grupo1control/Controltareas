@@ -2,7 +2,6 @@ package com.ProcessSA.ControlTareas.controlador;
 
 
 import com.ProcessSA.ControlTareas.servicio.ServicioFlujoTarea;
-import com.ProcessSA.ControlTareas.servicio.ServicioFuncion;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -12,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Clase que respresentael servicio REST de FlujoTarea
+ * Clase que respresenta el servicio REST de FlujoTarea
  */
 @RestController
 @RequestMapping("/api/flujo-tarea")
@@ -29,7 +28,7 @@ public class ControladorFlujoTarea {
     @ApiOperation(value = "Obtener lista de todo de FlujoTarea", notes = "Servicio para listar a todas los registros de FlujoTarea")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Flujos encontradas correctamente"),
-            @ApiResponse(code = 404, message = "Flijos no encontradas")
+            @ApiResponse(code = 404, message = "Flujos no encontradas")
     })
     public ResponseEntity<?> obtenerListaFlujoTarea() { return ResponseEntity.ok(this.servicio.obtenerFlujosTareas()); }
 
@@ -44,12 +43,16 @@ public class ControladorFlujoTarea {
     }
 
     @PutMapping("/actualizar/{codigoTarea}-{indice}-{codigoFuncion}")
-    @ApiOperation(value = "Actualizar FlujoTarea", notes = "Servicio para actualizar unn FlujoTarea")
+    @ApiOperation(value = "Actualizar FlujoTarea", notes = "Servicio para actualizar un FlujoTarea")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "FlujoTarea actualizado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> actualizarFlujoTarea(@PathVariable("indice")byte indice, Long codigoTarea, Long codigoFuncion) {
+    public ResponseEntity<?> actualizarFlujoTarea(
+            @PathVariable("indice") byte indice,
+            @PathVariable("codigoTarea") Long codigoTarea,
+            @PathVariable("codigoFuncion") Long codigoFuncion
+    ) {
         return new ResponseEntity<>(this.servicio.registroFlujoTarea(indice, codigoTarea, codigoFuncion), HttpStatus.OK);
     }
 
@@ -79,4 +82,5 @@ public class ControladorFlujoTarea {
     ) {
         return ResponseEntity.ok(this.servicio.obtenerFlujoTarea(codigoTarea, codigoFuncion));
     }
+
 }

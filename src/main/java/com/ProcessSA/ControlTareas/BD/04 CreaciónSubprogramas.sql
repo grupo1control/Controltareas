@@ -92,7 +92,7 @@ END;
 /
 ALTER TRIGGER "TRG_CR_USUARIO" ENABLE;
 
--- Función FN_GET_GLOSA_ERROR
+-- Función FN_GET_GLOSA_ERROR & Procedimientos Almacenados CRUD
 
 create FUNCTION "FN_GET_GLOSA_ERROR" RETURN VARCHAR2
 AS
@@ -122,8 +122,6 @@ EXCEPTION
         RETURN NULL;
 END FN_GET_GLOSA_ERROR;
 /
-
--- Procedimientos almacenados CRUD
 
 create PROCEDURE "SP_GET_PERSONAS" (
     OUT_GLOSA OUT VARCHAR2,
@@ -752,10 +750,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM ADMINISTRADOR WHERE ID = IN_id;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_ADMINISTRADOR FOR
-            SELECT * FROM ADMINISTRADOR WHERE ID = IN_id;
-    ELSE
+    OPEN OUT_ADMINISTRADOR FOR
+        SELECT * FROM ADMINISTRADOR WHERE ID = IN_id;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
@@ -859,10 +857,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM ASIGNACION WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario AND CODIGO_TAREA = IN_codigo_tarea;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_ASIGNACION FOR
-            SELECT * FROM ASIGNACION WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario AND CODIGO_TAREA = IN_codigo_tarea;
-    ELSE
+    OPEN OUT_ASIGNACION FOR
+        SELECT * FROM ASIGNACION WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario AND CODIGO_TAREA = IN_codigo_tarea;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Asignación no registrada';
     END IF;
@@ -932,10 +930,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM CONTRATO WHERE RUT_PERSONA = IN_rut OR RUT_EMPRESA = IN_rut;
 
-    IF hay_registro >= 1 THEN
-        OPEN OUT_CONTRATO FOR
-            SELECT * FROM CONTRATO WHERE RUT_PERSONA = IN_rut OR RUT_EMPRESA = IN_rut;
-    ELSE
+    OPEN OUT_CONTRATO FOR
+        SELECT * FROM CONTRATO WHERE RUT_PERSONA = IN_rut OR RUT_EMPRESA = IN_rut;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Rut sin contrato(s)';
     END IF;
@@ -1005,10 +1003,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM DISENNADOR WHERE ID = IN_id;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_DISENNADOR FOR
-            SELECT * FROM DISENNADOR WHERE ID = IN_id;
-    ELSE
+    OPEN OUT_DISENNADOR FOR
+        SELECT * FROM DISENNADOR WHERE ID = IN_id;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
@@ -1078,10 +1076,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM EMPRESA WHERE RUT = in_rut;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_EMPRESA FOR
-            SELECT * FROM EMPRESA WHERE RUT = IN_RUT;
-    ELSE
+    OPEN OUT_EMPRESA FOR
+        SELECT * FROM EMPRESA WHERE RUT = IN_RUT;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Rut no registrado';
     END IF;
@@ -1151,10 +1149,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_FLUJO_T FOR
-            SELECT * FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
-    ELSE
+    OPEN OUT_FLUJO_T FOR
+        SELECT * FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Flujo no registrado';
     END IF;
@@ -1257,10 +1255,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_TAREA = IN_codigo_tarea;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_FLUJO_T FOR
-            SELECT * FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_TAREA = IN_codigo_tarea;
-    ELSE
+    OPEN OUT_FLUJO_T FOR
+        SELECT * FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_TAREA = IN_codigo_tarea;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Flujo no registrado';
     END IF;
@@ -1298,10 +1296,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM FUNCION WHERE CODIGO = IN_codigo;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_FUNCION FOR
-            SELECT * FROM FUNCION WHERE CODIGO = IN_codigo;
-    ELSE
+    OPEN OUT_FUNCION FOR
+        SELECT * FROM FUNCION WHERE CODIGO = IN_codigo;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
@@ -1339,10 +1337,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM FUNCIONARIO WHERE ID = IN_id;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_FUNCIONARIO FOR
-            SELECT * FROM FUNCIONARIO WHERE ID = IN_id;
-    ELSE
+    OPEN OUT_FUNCIONARIO FOR
+        SELECT * FROM FUNCIONARIO WHERE ID = IN_id;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
@@ -1413,10 +1411,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM INTEGRANTE WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_INTEGRANTE FOR
-            SELECT * FROM INTEGRANTE WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario;
-    ELSE
+    OPEN OUT_INTEGRANTE FOR
+        SELECT * FROM INTEGRANTE WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Integración no registrado';
     END IF;
@@ -1486,10 +1484,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM PERSONA WHERE RUT = in_rut;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_PERSONA FOR
-            SELECT * FROM PERSONA WHERE RUT = IN_RUT;
-    ELSE
+    OPEN OUT_PERSONA FOR
+        SELECT * FROM PERSONA WHERE RUT = IN_RUT;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Rut no registrado';
     END IF;
@@ -1527,10 +1525,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM PLAZO WHERE CODIGO_TAREA = IN_codigo_tarea;
 
-    IF hay_registro >= 1 THEN
-        OPEN OUT_PLAZO FOR
-            SELECT * FROM PLAZO WHERE CODIGO_TAREA = IN_codigo_tarea;
-    ELSE
+    OPEN OUT_PLAZO FOR
+        SELECT * FROM PLAZO WHERE CODIGO_TAREA = IN_codigo_tarea;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
@@ -1600,10 +1598,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM PROCESO WHERE CODIGO = IN_codigo;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_PROCESO FOR
-            SELECT * FROM PROCESO WHERE CODIGO = IN_codigo;
-    ELSE
+    OPEN OUT_PROCESO FOR
+        SELECT * FROM PROCESO WHERE CODIGO = IN_codigo;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
@@ -1673,10 +1671,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM PROYECTO WHERE CODIGO = IN_codigo;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_PROYECTO FOR
-            SELECT * FROM PROYECTO WHERE CODIGO = IN_codigo;
-    ELSE
+    OPEN OUT_PROYECTO FOR
+        SELECT * FROM PROYECTO WHERE CODIGO = IN_codigo;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
@@ -1746,10 +1744,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM TAREA WHERE CODIGO = IN_codigo;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_TAREA FOR
-            SELECT * FROM TAREA WHERE CODIGO = IN_codigo;
-    ELSE
+    OPEN OUT_TAREA FOR
+        SELECT * FROM TAREA WHERE CODIGO = IN_codigo;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
@@ -1819,10 +1817,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM UNIDAD_INTERNA WHERE CODIGO = IN_codigo;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_UI FOR
-            SELECT * FROM UNIDAD_INTERNA WHERE CODIGO = IN_codigo;
-    ELSE
+    OPEN OUT_UI FOR
+        SELECT * FROM UNIDAD_INTERNA WHERE CODIGO = IN_codigo;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
@@ -1860,10 +1858,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM USUARIO WHERE ID = IN_id;
 
-    IF hay_registro = 1 THEN
-        OPEN OUT_USUARIO FOR
-            SELECT * FROM USUARIO WHERE ID = IN_id;
-    ELSE
+    OPEN OUT_USUARIO FOR
+        SELECT * FROM USUARIO WHERE ID = IN_id;
+
+    IF hay_registro = 0 THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;

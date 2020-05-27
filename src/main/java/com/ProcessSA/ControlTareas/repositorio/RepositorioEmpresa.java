@@ -114,12 +114,12 @@ public class RepositorioEmpresa {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Object empresa = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_EMPRESA")).get(0);
+        List<?> empresa = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_EMPRESA"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.add(empresa);
+        respuesta.addAll(empresa);
         return respuesta;
     }
 

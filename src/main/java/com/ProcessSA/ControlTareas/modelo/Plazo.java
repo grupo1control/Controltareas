@@ -13,7 +13,7 @@ import java.sql.Date;
 public class Plazo {
 
     @EmbeddedId
-    private PLazoPK pkPlazo;
+    private PlazoPK pkPlazo;
 
     @Basic
     @Column(name = "fecha")

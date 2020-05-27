@@ -116,12 +116,12 @@ public class RepositorioPersona {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Object persona = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_PERSONA")).get(0);
+        List<?> persona = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_PERSONA"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.add(persona);
+        respuesta.addAll(persona);
         return respuesta;
     }
 

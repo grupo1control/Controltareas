@@ -24,8 +24,6 @@ public class ServicioEmpresa {
      */
     public ArrayList obtenerEmpresas() {
         ArrayList lista = repositorio.spGetEmpresas();
-        System.out.println("Glosa de respuesta: " + lista.get(0));
-        System.out.println("Código de estado: " + lista.get(1));
         System.out.println("Lista de resultados:");
         lista.forEach(item -> System.out.println(item));
         return lista;
@@ -72,9 +70,7 @@ public class ServicioEmpresa {
      */
     public ArrayList obtenerEmpresa(String rut) {
         ArrayList entidad = repositorio.spGetEmpresa(rut);
-        System.out.println("Glosa de respuesta: " + entidad.get(0));
-        System.out.println("Código de estado: " + entidad.get(1));
-        System.out.println("Resultado: \n" + entidad.get(2));
+        System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
 

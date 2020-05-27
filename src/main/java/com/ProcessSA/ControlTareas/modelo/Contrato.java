@@ -11,7 +11,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "CONTRATO")
 @Data
-public class Contrato implements Serializable {
+public class Contrato{
 
     @Basic
     @Column(name = "salario")
@@ -31,15 +31,8 @@ public class Contrato implements Serializable {
     @Column(name = "funcion")
     private String funcion;
 
-    @ManyToOne
-    @JoinColumn(name = "RUT_EMPRESA", referencedColumnName = "RUT")
-    @Id
-    private Empresa fkEmpresa;
-
-    @ManyToOne
-    @JoinColumn(name = "RUT_PERSONA", referencedColumnName = "RUT", nullable = false)
-    @Id
-    private Persona fkPersona;
+    @EmbeddedId
+    private ContratoPK pkContrato;
 
     @Basic
     @Column(name = "creado", nullable = false)

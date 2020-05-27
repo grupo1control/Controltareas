@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 @Data
 @Embeddable
-public class PLazoPK implements Serializable {
+public class PlazoPK implements Serializable {
 
     /**
      * Cantidad de veces que se a asignado  o modificado un plazo a una tarea
