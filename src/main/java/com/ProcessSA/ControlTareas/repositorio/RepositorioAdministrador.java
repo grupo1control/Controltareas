@@ -21,6 +21,7 @@ import java.util.List;
  */
 @Repository
 public class RepositorioAdministrador {
+
     private final EntityManager gestorDeEntidad;
 
     public RepositorioAdministrador(EntityManager gestorDeEntidad) {
@@ -68,7 +69,6 @@ public class RepositorioAdministrador {
 
         try {
             while (rs.next()) {
-
                 entidad = new Administrador();
                 entidad.setUsuarioFk(
                         (Usuario) new RepositorioUsuario(this.gestorDeEntidad)
@@ -101,17 +101,20 @@ public class RepositorioAdministrador {
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_ADMINISTRADOR", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
-        consultaProcedimiento.setParameter("IN_CODIGO", id);
+        consultaProcedimiento.setParameter("IN_ID", id);
         // Ejecutarprocedimiento
         consultaProcedimiento.execute();
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
+        List<?> administrador = this.obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_ADMINISTRADOR"));
         // Encapsular resultado
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
+        respuesta.addAll(administrador);
         return respuesta;
     }
 
@@ -128,13 +131,11 @@ public class RepositorioAdministrador {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_ADMINISTRADOR");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CREADO", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", Long.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_ID", id);
-        consultaProcedimiento.setParameter("IN_CREADO", creado);
         // Ejecutar procedimiento
         consultaProcedimiento.execute();
         // Obtener valores de salida

@@ -13,6 +13,7 @@ BEGIN
 END;
 /
 ALTER TRIGGER "TRG_CR_FUNCION" ENABLE;
+
 --------------------------------------------------------
 --  DDL for Trigger TRG_CR_PROCESO
 --------------------------------------------------------

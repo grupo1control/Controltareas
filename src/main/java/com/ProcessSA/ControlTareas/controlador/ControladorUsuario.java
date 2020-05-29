@@ -31,7 +31,7 @@ public class ControladorUsuario {
     public ResponseEntity<?> obtenerListaUsuarios() { return ResponseEntity.ok(this.servicio.obtenerUsuarios()); }
 
     @PostMapping("/ingresar")
-    @ApiOperation(value = "Ingresar Usuario", notes = "Servicio para ingresar una nuevo Usuario")
+    @ApiOperation(value = "Ingresar Usuario", notes = "Servicio para ingresar un nuevo Usuario")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Usuario creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
@@ -40,7 +40,7 @@ public class ControladorUsuario {
         return new ResponseEntity<>(this.servicio.registroUsuario(rut, nombre, correo, clave), HttpStatus.CREATED);
     }
 
-    @PutMapping("/actualizar/{codigo}")
+    @PutMapping("/actualizar/{rut}")
     @ApiOperation(value = "Actualizar Usuario", notes = "Servicio para actualizar un Usuario")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Usuario actualizado correctamente"),
@@ -50,7 +50,7 @@ public class ControladorUsuario {
         return new ResponseEntity<>(this.servicio.registroUsuario(rut, nombre, correo, clave), HttpStatus.OK);
     }
 
-    @DeleteMapping("/eliminar/{codigo}")
+    @DeleteMapping("/eliminar/{id}")
     @ApiOperation(value = "Eliminar Usuario", notes = "Servicio para eliminar una Usuario")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Usuario eliminado correctamente"),
@@ -60,7 +60,7 @@ public class ControladorUsuario {
         return new ResponseEntity<>(this.servicio.eliminarUsuario(id), HttpStatus.OK);
     }
 
-    @GetMapping("/{codigo}")
+    @GetMapping("/{id}")
     @ApiOperation(value = "Obtener un Usuario", notes = "Servicio para obtener datos de un Usuario")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Usuario encontrado correctamente"),

@@ -32,10 +32,6 @@ public class Usuario {
     @Column(name = "clave", nullable = false)
     private String clave;
 
-    @Basic
-    @Column(name = "estado", nullable = false)
-    private boolean estado;
-
     @OneToOne(mappedBy = "usuarioFk", cascade = CascadeType.ALL)
     private Administrador administrador;
     @OneToOne(mappedBy = "usuarioFk", cascade = CascadeType.ALL)
