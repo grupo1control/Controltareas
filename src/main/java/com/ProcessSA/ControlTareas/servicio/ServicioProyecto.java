@@ -3,7 +3,6 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioProyecto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
 
 /**
@@ -76,4 +75,5 @@ public class ServicioProyecto {
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
+
 }

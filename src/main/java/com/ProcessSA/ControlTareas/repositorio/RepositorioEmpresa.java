@@ -2,6 +2,7 @@ package com.ProcessSA.ControlTareas.repositorio;
 
 import com.ProcessSA.ControlTareas.modelo.Empresa;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
@@ -13,6 +14,7 @@ import java.util.List;
  * Convensión Java Spring:
  *   public interface RepositorioEmpresa implements JpaRepository<[Clase], [tipoDatoID]>(){ }
  */
+
 /**
  * Clase para definir las operaciones de BD relacionadas con EMPRESA
  */
@@ -60,7 +62,10 @@ public class RepositorioEmpresa {
      * @return
      */
     public String limpiar(String rut) {
-        return rut.replace(".", "").replace("-", "");
+        if (!StringUtils.isEmpty(rut))
+            return rut.replace(".", "").replace("-", "").trim();
+        else
+            return "";
     }
 
     /**
@@ -127,6 +132,7 @@ public class RepositorioEmpresa {
      * Ejecuta el procedimiento almacenado EMPRESA,
      * para eliminar un registro de Empresa,
      * y retorna un objeto ArrayList con los resultados obtenidos
+     *
      * @param rut
      * @return
      */

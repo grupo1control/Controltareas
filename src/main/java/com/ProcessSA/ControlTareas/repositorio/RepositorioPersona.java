@@ -2,6 +2,8 @@ package com.ProcessSA.ControlTareas.repositorio;
 
 import com.ProcessSA.ControlTareas.modelo.Persona;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
+
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
@@ -62,7 +64,10 @@ public class RepositorioPersona {
      * @return
      */
     public String limpiar(String rut) {
-        return rut.replace(".", "").replace("-", "");
+        if (!StringUtils.isEmpty(rut))
+            return rut.replace(".", "").replace("-", "").trim();
+        else
+            return "";
     }
 
     /**

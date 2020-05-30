@@ -4,7 +4,7 @@ import com.ProcessSA.ControlTareas.modelo.Administrador;
 import com.ProcessSA.ControlTareas.modelo.Empresa;
 import com.ProcessSA.ControlTareas.modelo.Proyecto;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.util.StringUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
@@ -16,7 +16,6 @@ import java.util.List;
  * Convensión Java Spring:
  *   public interface RepositorioProyecto implements JpaRepository<[Clase], [tipoDatoID]>(){ }
  */
-
 /**
  * Clase para definir las operaciones de BD relacionadas con PROYECTO
  */
@@ -79,7 +78,6 @@ public class RepositorioProyecto {
 
                 fkEmpresa = new RepositorioEmpresa(this.gestorDeEntidad)
                         .spGetEmpresa(rs.getString("rut_EMPRESA"));
-
                 if (fkEmpresa.size() > 2)
                     entidad.setFkEmpresa((Empresa) fkEmpresa.get(2));
 
@@ -114,7 +112,7 @@ public class RepositorioProyecto {
     public ArrayList spGetProyecto(long codigo) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_PROYECTO");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_PROYECTO", void.class, ParameterMode.REF_CURSOR);
@@ -125,11 +123,12 @@ public class RepositorioProyecto {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        List<?> proyectos = this.obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_PROYECTO"));
+        List<?> proyecto = this.obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_PROYECTO"));
         // Encapsular resultado
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
+        respuesta.addAll(proyecto);
         return respuesta;
     }
 
@@ -149,7 +148,7 @@ public class RepositorioProyecto {
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_CODIGO", codigo);
-        // Ejecutarprocedimiento
+        // Ejecutar procedimiento
         consultaProcedimiento.execute();
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
@@ -188,7 +187,7 @@ public class RepositorioProyecto {
         consultaProcedimiento.setParameter("IN_CODIGO", codigo);
         consultaProcedimiento.setParameter("IN_NOMBRE", nombre);
         consultaProcedimiento.setParameter("IN_ESTADO", inputEstado);
-        consultaProcedimiento.setParameter("IN_RUT_EMPRESA", rut_empresa);
+        consultaProcedimiento.setParameter("IN_RUT_EMPRESA", this.limpiar(rut_empresa));
         consultaProcedimiento.setParameter("IN_ID_ADMINISTRADOR", id_administrador);
         // Ejecutar procedimiento
         consultaProcedimiento.execute();
@@ -203,4 +202,19 @@ public class RepositorioProyecto {
         respuesta.add(codigoSalida);
         return respuesta;
     }
+
+    /**
+     * Prepara el RUT para ser ingresado en la base de datos
+     * (sin puntos ni guion)
+     *
+     * @param rut
+     * @return
+     */
+    public String limpiar(String rut) {
+        if (!StringUtils.isEmpty(rut))
+            return rut.replace(".", "").replace("-", "").trim();
+        else
+            return "";
+    }
+
 }

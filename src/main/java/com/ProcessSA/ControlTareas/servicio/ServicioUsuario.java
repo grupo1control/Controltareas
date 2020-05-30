@@ -11,6 +11,7 @@ import java.util.ArrayList;
 @Service
 @Transactional(readOnly = true)
 public class ServicioUsuario {
+
     public final RepositorioUsuario repositorio;
 
     public ServicioUsuario(RepositorioUsuario repositorio) {
@@ -72,4 +73,5 @@ public class ServicioUsuario {
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
+
 }
