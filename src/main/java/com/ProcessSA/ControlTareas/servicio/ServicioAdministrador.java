@@ -3,9 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioAdministrador;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Clase para definir los servicios asociados a Tarea
@@ -36,13 +34,12 @@ public class ServicioAdministrador {
      * Ingresa o actualiza un registro de Administrador
      *
      * @param id
-     * @param creado
 
      * @return
      */
     @Transactional
-    public ArrayList registroAdministrador(long id, Date creado) {
-        ArrayList registro = repositorio.spRegAdministrador(id, creado);
+    public ArrayList registroAdministrador(long id) {
+        ArrayList registro = repositorio.spRegAdministrador(id);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
         System.out.println("Identificador de salida: " + registro.get(2));
@@ -61,4 +58,19 @@ public class ServicioAdministrador {
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
+
+    /**
+     * Elimina un Administrador
+     *
+     * @param id
+     * @return
+     */
+    @Transactional
+    public ArrayList eliminarAdministrador(long id) {
+        ArrayList retiro = repositorio.spDelAdministrador(id);
+        System.out.println("Glosa de respuesta: " + retiro.get(0));
+        System.out.println("Código de estado: " + retiro.get(1));
+        return retiro;
+    }
+
 }

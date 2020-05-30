@@ -43,7 +43,7 @@ public class ServicioProyecto {
      * @return
      */
     @Transactional
-    public ArrayList registroProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, int id_administrador) {
+    public ArrayList registroProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, long id_administrador) {
         ArrayList registro = repositorio.spRegProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));

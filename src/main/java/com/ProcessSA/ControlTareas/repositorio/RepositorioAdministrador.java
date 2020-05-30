@@ -9,7 +9,6 @@ import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 /*
  * Convensión Java Spring:
@@ -101,7 +100,7 @@ public class RepositorioAdministrador {
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_ADMINISTRADOR", int.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_ADMINISTRADOR", void.class, ParameterMode.REF_CURSOR);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_ID", id);
         // Ejecutarprocedimiento
@@ -124,16 +123,15 @@ public class RepositorioAdministrador {
      * y retorna un un objeto ArrayList con los resultados obtenidos
      *
      * @param id
-     * @param creado
      * @return
      */
-    public ArrayList spRegAdministrador(long id, Date creado ) {
+    public ArrayList spRegAdministrador(long id) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_ADMINISTRADOR");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", Long.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_ID_SALIDA", Long.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_ID", id);
         // Ejecutar procedimiento
@@ -141,7 +139,7 @@ public class RepositorioAdministrador {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Long codigoSalida = (Long) consultaProcedimiento.getOutputParameterValue("OUT_COD_SALIDA");
+        Long codigoSalida = (Long) consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
@@ -149,4 +147,32 @@ public class RepositorioAdministrador {
         respuesta.add(codigoSalida);
         return respuesta;
     }
+
+    /**
+     * Ejecuta el procedimiento almacenado SP_DEL_ADMINISTRADOR,
+     * para eliminar un registro de Administrador,
+     * y retorna un objeto ArrayList con los resultados obtenidos
+     * @param id
+     * @return
+     */
+    public ArrayList spDelAdministrador(long id) {
+        StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_ADMINISTRADOR");
+        // Registrar los parámetros de entrada y salida
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
+        // Asignar valores de entrada
+        consultaProcedimiento.setParameter("IN_ID",id);
+        // Ejecutarprocedimiento
+        consultaProcedimiento.execute();
+        // Obtener valores de salida
+        String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
+        int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
+        // Encapsular resultado
+        ArrayList respuesta = new ArrayList<>();
+        respuesta.add(glosa);
+        respuesta.add(estado);
+        return respuesta;
+    }
+
 }

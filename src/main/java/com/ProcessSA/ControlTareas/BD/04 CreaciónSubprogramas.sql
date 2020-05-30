@@ -124,37 +124,6 @@ EXCEPTION
 END FN_GET_GLOSA_ERROR;
 /
 
-create or replace PROCEDURE "SP_GET_PERSONAS" (
-    OUT_GLOSA OUT VARCHAR2,
-    OUT_ESTADO OUT NUMBER,
-    OUT_PERSONAS OUT SYS_REFCURSOR
-) AS
-/**************************************************************************************************************
-   NAME:       	SP_GET_PERSONAS
-   PURPOSE		Retorna todos los registros de PERSONA en el esquema
-
-   REVISIONS:
-   Ver          Date           Author                               Description
-   ---------    ----------     -------------------                  ----------------------------------------------
-   1.0		    11/05/2020     Jesús José Daniel Murga Fernández	1. Creación del procedimiento almacenado
-
-***************************************************************************************************************/
-
-BEGIN
-    OUT_ESTADO := 0;
-    OUT_GLOSA := 'SP_GET_PERSONAS ejecutado exitósamente 👍';
-
-    OPEN OUT_PERSONAS FOR
-        SELECT * FROM PERSONA;
-
-EXCEPTION
-    WHEN OTHERS THEN
-        OUT_ESTADO := -1;
-        OUT_GLOSA := FN_GET_GLOSA_ERROR;
-
-END SP_GET_PERSONAS;
-/
-
 create or replace PROCEDURE "SP_DEL_ASIGNACION" (
     IN_id_usuario IN ASIGNACION.ID_USUARIO%TYPE,
     IN_codigo_ui IN ASIGNACION.CODIGO_UI%TYPE,
@@ -1124,7 +1093,7 @@ EXCEPTION
 END SP_GET_EMPRESAS;
 /
 
-create or replace PROCEDURE               "SP_GET_FLUJO_F" (
+create or replace PROCEDURE              "SP_GET_FLUJO_F" (
     IN_codigo_funcion IN FLUJO_FUNCION.CODIGO_FUNCION%TYPE,
     IN_codigo_proceso IN FLUJO_FUNCION.CODIGO_PROCESO%TYPE,
     OUT_GLOSA OUT VARCHAR2,
@@ -1230,7 +1199,7 @@ EXCEPTION
 END SP_GET_FLUJOS_T;
 /
 
-create or replace PROCEDURE               "SP_GET_FLUJO_T" (
+create or replace PROCEDURE              "SP_GET_FLUJO_T" (
     IN_codigo_funcion IN FLUJO_TAREA.CODIGO_FUNCION%TYPE,
     IN_codigo_tarea IN FLUJO_TAREA.CODIGO_TAREA%TYPE,
     OUT_GLOSA OUT VARCHAR2,
@@ -1499,6 +1468,37 @@ EXCEPTION
         OUT_GLOSA := FN_GET_GLOSA_ERROR;
 
 END SP_GET_PERSONA;
+/
+
+create or replace PROCEDURE "SP_GET_PERSONAS" (
+    OUT_GLOSA OUT VARCHAR2,
+    OUT_ESTADO OUT NUMBER,
+    OUT_PERSONAS OUT SYS_REFCURSOR
+) AS
+/**************************************************************************************************************
+   NAME:       	SP_GET_PERSONAS
+   PURPOSE		Retorna todos los registros de PERSONA en el esquema
+
+   REVISIONS:
+   Ver          Date           Author                               Description
+   ---------    ----------     -------------------                  ----------------------------------------------
+   1.0		    11/05/2020     Jesús José Daniel Murga Fernández	1. Creación del procedimiento almacenado
+
+***************************************************************************************************************/
+
+BEGIN
+    OUT_ESTADO := 0;
+    OUT_GLOSA := 'SP_GET_PERSONAS ejecutado exitósamente 👍';
+
+    OPEN OUT_PERSONAS FOR
+        SELECT * FROM PERSONA;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        OUT_ESTADO := -1;
+        OUT_GLOSA := FN_GET_GLOSA_ERROR;
+
+END SP_GET_PERSONAS;
 /
 
 create or replace PROCEDURE "SP_GET_PLAZO" (
@@ -1936,6 +1936,7 @@ BEGIN
     IF (hay_registro = 1) THEN
         OUT_ESTADO := -1;
         OUT_GLOSA := 'ADMINISTRADOR ya registrado';
+        OUT_ID_SALIDA := in_id;
     ELSE
         INSERT INTO ADMINISTRADOR(id, creado)
         VALUES (in_id, SYSDATE())
@@ -2154,7 +2155,7 @@ EXCEPTION
 END SP_REG_EMPRESA;
 /
 
-create or replace PROCEDURE               "SP_REG_FLUJO_F" (
+create or replace PROCEDURE              "SP_REG_FLUJO_F" (
     in_indice IN FLUJO_FUNCION.INDICE%TYPE,
     in_codigo_proceso IN FLUJO_FUNCION.CODIGO_PROCESO%TYPE,
     in_codigo_FUNCION IN FLUJO_FUNCION.CODIGO_FUNCION%TYPE,
@@ -2205,7 +2206,7 @@ EXCEPTION
 END SP_REG_FLUJO_F;
 /
 
-create or replace PROCEDURE               "SP_REG_FLUJO_T" (
+create or replace PROCEDURE              "SP_REG_FLUJO_T" (
     in_indice IN FLUJO_TAREA.INDICE%TYPE,
     in_codigo_funcion IN FLUJO_TAREA.CODIGO_FUNCION%TYPE,
     in_codigo_tarea IN FLUJO_TAREA.CODIGO_TAREA%TYPE,
@@ -2793,4 +2794,44 @@ EXCEPTION
         OUT_GLOSA := FN_GET_GLOSA_ERROR;
 
 END SP_GET_FUNCIONES;
+/
+
+create or replace PROCEDURE "SP_DEL_ADMINISTRADOR" (
+    IN_ID IN ADMINISTRADOR.id%TYPE,
+    OUT_GLOSA OUT VARCHAR2,
+    OUT_ESTADO OUT NUMBER
+) AS
+
+/**************************************************************************************************************
+   NAME:       	SP_DEL_TAREA
+   PURPOSE		Ejecuta la eliminación del registro de una TAREA con el codigo ingresado
+
+   REVISIONS:
+   Ver          Date           Author                               Description
+   ---------    ----------     -------------------                  ----------------------------------------------
+   1.0		    11/05/2020     Jesús José Daniel Murga Fernández	1. Creación del procedimiento almacenado
+
+***************************************************************************************************************/
+
+    hay_registro NUMBER(1);
+
+BEGIN
+    OUT_ESTADO := 0;
+    OUT_GLOSA := 'SP_DEL_ADMINISTRADOR ejecutado exitósamente 👍';
+
+    SELECT COUNT(*) INTO hay_registro FROM ADMINISTRADOR WHERE id = IN_id;
+
+    IF hay_registro = 1 THEN
+        DELETE FROM ADMINISTRADOR WHERE id = IN_id;
+    ELSE
+        OUT_ESTADO := -1;
+        OUT_GLOSA := 'Id no registrado';
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        OUT_ESTADO := -1;
+        OUT_GLOSA := FN_GET_GLOSA_ERROR;
+
+END SP_DEL_ADMINISTRADOR;
 /

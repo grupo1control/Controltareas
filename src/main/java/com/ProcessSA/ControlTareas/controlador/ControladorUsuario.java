@@ -51,7 +51,7 @@ public class ControladorUsuario {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    @ApiOperation(value = "Eliminar Usuario", notes = "Servicio para eliminar una Usuario")
+    @ApiOperation(value = "Eliminar Usuario", notes = "Servicio para eliminar un Usuario")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Usuario eliminado correctamente"),
             @ApiResponse(code = 404, message = "Usuario no encontrado")

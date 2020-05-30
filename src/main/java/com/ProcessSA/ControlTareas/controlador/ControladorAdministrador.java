@@ -17,6 +17,7 @@ import java.util.Date;
 @RequestMapping("/api/administrador")
 @Api(tags = "Administrador")
 public class ControladorAdministrador {
+    
     private final ServicioAdministrador servicio;
 
     public ControladorAdministrador(ServicioAdministrador servicio) {
@@ -37,22 +38,12 @@ public class ControladorAdministrador {
             @ApiResponse(code = 201, message = "Administrador creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarAdministrador(long codigo, Date creado) {
-        return new ResponseEntity<>(this.servicio.registroAdministrador(codigo,creado), HttpStatus.CREATED);
-    }
-
-    @PutMapping("/actualizar/{codigo}")
-    @ApiOperation(value = "Actualizar Administrador", notes = "Servicio para actualizar un Administrador")
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Administrador actualizado correctamente"),
-            @ApiResponse(code = 400, message = "Solicitud inválida")
-    })
-    public ResponseEntity<?> actualizarAdministrador(@PathVariable("id") Long id, Date creado) {
-        return new ResponseEntity<>(this.servicio.registroAdministrador(id, creado), HttpStatus.OK);
+    public ResponseEntity<?> ingresarAdministrador(long codigo) {
+        return new ResponseEntity<>(this.servicio.registroAdministrador(codigo), HttpStatus.CREATED);
     }
 
 
-    @GetMapping("/{codigo}")
+    @GetMapping("/{id}")
     @ApiOperation(value = "Obtener un Administrador", notes = "Servicio para obtener datos de un Administrador")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Administrador encontrado correctamente"),
@@ -61,4 +52,15 @@ public class ControladorAdministrador {
     public ResponseEntity<?> obtenerAdministrador(@PathVariable("id") Long id) {
         return ResponseEntity.ok(this.servicio.obtenerAdministrador(id));
     }
+
+    @DeleteMapping("/eliminar/{id}")
+    @ApiOperation(value = "Eliminar Administrador", notes = "Servicio para eliminar un Administrador")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Administrador eliminado correctamente"),
+            @ApiResponse(code = 404, message = "Administrador no encontrado")
+    })
+    public ResponseEntity<?> eliminarAdministrador(@PathVariable("id") long id) {
+        return new ResponseEntity<>(this.servicio.eliminarAdministrador(id), HttpStatus.OK);
+    }
+
 }

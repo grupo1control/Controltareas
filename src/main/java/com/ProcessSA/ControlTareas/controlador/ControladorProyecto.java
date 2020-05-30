@@ -38,7 +38,7 @@ public class ControladorProyecto {
             @ApiResponse(code = 201, message = "Proyecto creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, int id_administrador) {
+    public ResponseEntity<?> ingresarProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, long id_administrador) {
         return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador), HttpStatus.CREATED);
     }
 
