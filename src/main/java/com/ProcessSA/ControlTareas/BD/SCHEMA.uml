@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>fed17afc-eadd-473c-be02-b6d6897d2797.SCHEMA:PFT8461</OriginalElement>
+  <nodes>
+    <node x="195.0" y="370.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.INTEGRANTE</node>
+    <node x="735.0" y="1304.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROCESO</node>
+    <node x="466.5" y="250.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PLAZO</node>
+    <node x="466.0" y="788.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PERSONA</node>
+    <node x="455.0" y="-12.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.TAREA</node>
+    <node x="-20.0" y="832.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FUNCIONARIO</node>
+    <node x="1175.0" y="1668.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FUNCION</node>
+    <node x="492.0" y="1072.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.ADMINISTRADOR</node>
+    <node x="224.0" y="1392.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.DISENNADOR</node>
+    <node x="1015.0" y="1359.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.UNIDAD_INTERNA</node>
+    <node x="723.0" y="508.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.EMPRESA</node>
+    <node x="172.0" y="777.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.USUARIO</node>
+    <node x="452.0" y="497.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.CONTRATO</node>
+    <node x="731.5" y="1017.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROYECTO</node>
+    <node x="1178.5" y="-1.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_TAREA</node>
+    <node x="186.5" y="-34.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.ASIGNACION</node>
+    <node x="738.5" y="1679.0">fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_FUNCION</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_TAREA" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.TAREA">
+      <point x="-101.5" y="0.0" />
+      <point x="105.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_FUNCION" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROCESO">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="136.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.CONTRATO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.EMPRESA">
+      <point x="108.0" y="0.0" />
+      <point x="-117.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.ASIGNACION" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.INTEGRANTE">
+      <point x="0.0" y="114.0" />
+      <point x="0.0" y="-70.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.ASIGNACION" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.TAREA">
+      <point x="93.5" y="0.0" />
+      <point x="-105.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROYECTO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.EMPRESA">
+      <point x="0.0" y="-103.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROYECTO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.ADMINISTRADOR">
+      <point x="-108.5" y="0.0" />
+      <point x="68.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.USUARIO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PERSONA">
+      <point x="108.0" y="0.0" />
+      <point x="-94.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_FUNCION" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FUNCION">
+      <point x="101.5" y="0.0" />
+      <point x="-105.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.INTEGRANTE" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.USUARIO">
+      <point x="0.0" y="70.0" />
+      <point x="0.0" y="-103.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROCESO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROYECTO">
+      <point x="0.0" y="-136.0" />
+      <point x="0.0" y="103.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.INTEGRANTE" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.UNIDAD_INTERNA">
+      <point x="85.0" y="0.0" />
+      <point x="1120.0" y="440.0" />
+      <point x="0.0" y="-81.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PLAZO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.TAREA">
+      <point x="0.0" y="-70.0" />
+      <point x="0.0" y="92.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_TAREA" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FUNCION">
+      <point x="0.0" y="81.0" />
+      <point x="0.0" y="-92.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.DISENNADOR" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.USUARIO">
+      <point x="0.0" y="-48.0" />
+      <point x="0.0" y="103.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.CONTRATO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PERSONA">
+      <point x="0.0" y="103.0" />
+      <point x="0.0" y="-92.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROCESO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.UNIDAD_INTERNA">
+      <point x="105.0" y="0.0" />
+      <point x="-105.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FUNCIONARIO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.USUARIO">
+      <point x="60.0" y="0.0" />
+      <point x="-108.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.PROCESO" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.DISENNADOR">
+      <point x="-105.0" y="0.0" />
+      <point x="56.0" y="0.0" />
+    </edge>
+    <edge source="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.ADMINISTRADOR" target="fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.USUARIO">
+      <point x="-68.0" y="0.0" />
+      <point x="320.0" y="1120.0" />
+      <point x="40.0" y="103.0" />
+    </edge>
+  </edges>
+  <settings layout="Orthogonal" zoom="0.42" x="802.4285714285714" y="721.0" />
+  <SelectedNodes>
+    <node>fed17afc-eadd-473c-be02-b6d6897d2797.TABLE:PFT8461.FLUJO_FUNCION</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
