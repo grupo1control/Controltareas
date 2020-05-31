@@ -1,45 +1,45 @@
 package com.ProcessSA.ControlTareas.servicio;
 
-import com.ProcessSA.ControlTareas.repositorio.RepositorioAdministrador;
+import com.ProcessSA.ControlTareas.repositorio.RepositorioDisennador;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 
 /**
- * Clase para definir los servicios asociados a Administrador
+ * Clase para definir los servicios asociados a Tarea
  */
 @Service
 @Transactional(readOnly = true)
+public class ServicioDisennador {
 
-public class ServicioAdministrador {
-    public final RepositorioAdministrador repositorio;
+    public final RepositorioDisennador repositorio;
 
-    public ServicioAdministrador(RepositorioAdministrador repositorio) {
+    public ServicioDisennador(RepositorioDisennador repositorio) {
         this.repositorio = repositorio;
     }
 
     /**
-     * Obtiene una lista de todos los Administradores
+     * Obtiene una lista de todos los Diseñadores
      *
      * @return
      */
-    public ArrayList obtenerAdministradores() {
-        ArrayList lista = repositorio.spGetAdministradores();
+    public ArrayList obtenerDisennadores() {
+        ArrayList lista = repositorio.spGetDisennadores();
         System.out.println("Lista de resultados:");
         lista.forEach(item -> System.out.println(item));
         return lista;
     }
 
     /**
-     * Ingresa o actualiza un registro de Administrador
+     * Ingresa o actualiza un registro de Diseñador
      *
      * @param id
 
      * @return
      */
     @Transactional
-    public ArrayList registroAdministrador(long id) {
-        ArrayList registro = repositorio.spRegAdministrador(id);
+    public ArrayList registroDisennador(long id) {
+        ArrayList registro = repositorio.spRegDisennador(id);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
         System.out.println("Identificador de salida: " + registro.get(2));
@@ -48,29 +48,28 @@ public class ServicioAdministrador {
 
 
     /**
-     * Obtiene un registro de un Administrador
+     * Obtiene un registro de un Diseñador
      *
      * @param id
      * @return
      */
-    public ArrayList obtenerAdministrador(long id) {
-        ArrayList entidad = repositorio.spGetAdministrador(id);
+    public ArrayList obtenerDisennador(long id) {
+        ArrayList entidad = repositorio.spGetDisennador(id);
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
 
     /**
-     * Elimina un Administrador
+     * Elimina un Diseñador
      *
      * @param id
      * @return
      */
     @Transactional
-    public ArrayList eliminarAdministrador(long id) {
-        ArrayList retiro = repositorio.spDelAdministrador(id);
+    public ArrayList eliminarDisennador(long id) {
+        ArrayList retiro = repositorio.spDelDisennador(id);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
         return retiro;
     }
-
 }

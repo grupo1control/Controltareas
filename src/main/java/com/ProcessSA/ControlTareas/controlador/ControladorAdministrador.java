@@ -8,7 +8,6 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.Date;
 
 /**
  * Clase que representa el servicio REST de Administrador
