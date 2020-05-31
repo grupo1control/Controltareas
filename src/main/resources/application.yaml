@@ -4,8 +4,9 @@ spring:
     username: PFT8461
     password: PFT8461
     driver-class-name: oracle.jdbc.driver.OracleDriver
+
   jpa:
     hibernate:
-      ddl-auto: create-drop
-      generate-ddl: true
+    ddl-auto: create-drop
+    generate-ddl: true
     show-sql: true
