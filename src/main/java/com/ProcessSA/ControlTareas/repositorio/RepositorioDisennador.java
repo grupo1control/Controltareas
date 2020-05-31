@@ -13,7 +13,7 @@ import java.util.List;
 
 /*
  * Convensión Java Spring:
- *   public interface RepositorioDise implements JpaRepository<[Clase], [tipoDatoID]>(){ }
+ *   public interface RepositorioDisennador implements JpaRepository<[Clase], [tipoDatoID]>(){ }
  */
 
 /**
@@ -56,7 +56,7 @@ public class RepositorioDisennador {
 
     /**
      * Recorre el ResultSet obtenido de un Cursor
-     * Diseñador de la ejecución de un Procedimiento
+     * Diseñador de la ejecución de un Procedimiento Almacenado
      * retonando una lista de objetos de diseñador
      *
      * @param rs
