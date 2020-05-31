@@ -1,45 +1,45 @@
 package com.ProcessSA.ControlTareas.servicio;
 
-import com.ProcessSA.ControlTareas.repositorio.RepositorioAdministrador;
+import com.ProcessSA.ControlTareas.repositorio.RepositorioFuncionario;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 
 /**
- * Clase para definir los servicios asociados a Administrador
+ * Clase para definir los servicios asociados a Funcionario
  */
 @Service
 @Transactional(readOnly = true)
-public class ServicioAdministrador {
+public class ServicioFuncionario {
 
-    public final RepositorioAdministrador repositorio;
+    public final RepositorioFuncionario repositorio;
 
-    public ServicioAdministrador(RepositorioAdministrador repositorio) {
+    public ServicioFuncionario(RepositorioFuncionario repositorio) {
         this.repositorio = repositorio;
     }
 
     /**
-     * Obtiene una lista de todos los Administradores
+     * Obtiene una lista de todos los Funcionarios
      *
      * @return
      */
-    public ArrayList obtenerAdministradores() {
-        ArrayList lista = repositorio.spGetAdministradores();
+    public ArrayList obtenerFuncionarios() {
+        ArrayList lista = repositorio.spGetFuncionarios();
         System.out.println("Lista de resultados:");
         lista.forEach(item -> System.out.println(item));
         return lista;
     }
 
     /**
-     * Ingresa o actualiza un registro de Administrador
+     * Ingresa o actualiza un registro de Funcionario
      *
      * @param id
 
      * @return
      */
     @Transactional
-    public ArrayList registroAdministrador(long id) {
-        ArrayList registro = repositorio.spRegAdministrador(id);
+    public ArrayList registroFuncionario(long id) {
+        ArrayList registro = repositorio.spRegFuncionario(id);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
         System.out.println("Identificador de salida: " + registro.get(2));
@@ -48,26 +48,26 @@ public class ServicioAdministrador {
 
 
     /**
-     * Obtiene un registro de un Administrador
+     * Obtiene un registro de un Funcionario
      *
      * @param id
      * @return
      */
-    public ArrayList obtenerAdministrador(long id) {
-        ArrayList entidad = repositorio.spGetAdministrador(id);
+    public ArrayList obtenerFuncionario(long id) {
+        ArrayList entidad = repositorio.spGetFuncionario(id);
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }
 
     /**
-     * Elimina un Administrador
+     * Elimina un Funcionario
      *
      * @param id
      * @return
      */
     @Transactional
-    public ArrayList eliminarAdministrador(long id) {
-        ArrayList retiro = repositorio.spDelAdministrador(id);
+    public ArrayList eliminarFuncionario(long id) {
+        ArrayList retiro = repositorio.spDelFuncionario(id);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
         return retiro;

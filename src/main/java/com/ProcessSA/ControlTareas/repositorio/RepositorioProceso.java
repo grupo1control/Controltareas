@@ -83,12 +83,12 @@ public class RepositorioProceso {
                 );
 
 
-                entidad.setDisennadorFk(
-                        (Disennador) new RepositorioDisennador(this.gestorDeEntidad)
-                                .spGetDisennador(
-                                        rs.getLong("id_DISENNADOR")
-                                ).get(2)
-                );
+//                entidad.setDisennadorFk(
+//                        (Disennador) new RepositorioDisennador(this.gestorDeEntidad)
+//                                .spGetDisennador(
+//                                        rs.getLong("id_DISENNADOR")
+//                                ).get(2)
+//                );
 
                 entidad.setProyectoFk(
                         (Proyecto) new RepositorioProyecto(this.gestorDeEntidad)

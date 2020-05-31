@@ -33,7 +33,7 @@ public class ControladorAdministrador {
     public ResponseEntity<?> obtenerListaAdministradores() { return ResponseEntity.ok(this.servicio.obtenerAdministradores()); }
 
     @PostMapping("/ingresar")
-    @ApiOperation(value = "Ingresar Administrador", notes = "Servicio para ingresar una nuevo Administrador")
+    @ApiOperation(value = "Ingresar Administrador", notes = "Servicio para ingresar un nuevo Administrador")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Administrador creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
