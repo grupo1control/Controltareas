@@ -2835,3 +2835,83 @@ EXCEPTION
 
 END SP_DEL_ADMINISTRADOR;
 /
+
+create or replace PROCEDURE "SP_DEL_DISENNADOR" (
+    IN_ID IN DISENNADOR.id%TYPE,
+    OUT_GLOSA OUT VARCHAR2,
+    OUT_ESTADO OUT NUMBER
+) AS
+
+/**************************************************************************************************************
+   NAME:       	SP_DEL_TAREA
+   PURPOSE		Ejecuta la eliminación del registro de una TAREA con el codigo ingresado
+
+   REVISIONS:
+   Ver          Date           Author                               Description
+   ---------    ----------     -------------------                  ----------------------------------------------
+   1.0		    11/05/2020     Jesús José Daniel Murga Fernández	1. Creación del procedimiento almacenado
+
+***************************************************************************************************************/
+
+    hay_registro NUMBER(1);
+
+BEGIN
+    OUT_ESTADO := 0;
+    OUT_GLOSA := 'SP_DEL_DISENNADOR ejecutado exitósamente 👍';
+
+    SELECT COUNT(*) INTO hay_registro FROM DISENNADOR WHERE id = IN_id;
+
+    IF hay_registro = 1 THEN
+        DELETE FROM DISENNADOR WHERE id = IN_id;
+    ELSE
+        OUT_ESTADO := -1;
+        OUT_GLOSA := 'Id no registrado';
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        OUT_ESTADO := -1;
+        OUT_GLOSA := FN_GET_GLOSA_ERROR;
+
+END SP_DEL_DISENNADOR;
+/
+
+create or replace PROCEDURE "SP_DEL_FUNCIONARIO" (
+    IN_ID IN FUNCIONARIO.id%TYPE,
+    OUT_GLOSA OUT VARCHAR2,
+    OUT_ESTADO OUT NUMBER
+) AS
+
+/**************************************************************************************************************
+   NAME:       	SP_DEL_TAREA
+   PURPOSE		Ejecuta la eliminación del registro de una TAREA con el codigo ingresado
+
+   REVISIONS:
+   Ver          Date           Author                               Description
+   ---------    ----------     -------------------                  ----------------------------------------------
+   1.0		    11/05/2020     Jesús José Daniel Murga Fernández	1. Creación del procedimiento almacenado
+
+***************************************************************************************************************/
+
+    hay_registro NUMBER(1);
+
+BEGIN
+    OUT_ESTADO := 0;
+    OUT_GLOSA := 'SP_DEL_FUNCIONARIO ejecutado exitósamente 👍';
+
+    SELECT COUNT(*) INTO hay_registro FROM FUNCIONARIO WHERE id = IN_id;
+
+    IF hay_registro = 1 THEN
+        DELETE FROM FUNCIONARIO WHERE id = IN_id;
+    ELSE
+        OUT_ESTADO := -1;
+        OUT_GLOSA := 'Id no registrado';
+    END IF;
+
+EXCEPTION
+    WHEN OTHERS THEN
+        OUT_ESTADO := -1;
+        OUT_GLOSA := FN_GET_GLOSA_ERROR;
+
+END SP_DEL_FUNCIONARIO;
+/
