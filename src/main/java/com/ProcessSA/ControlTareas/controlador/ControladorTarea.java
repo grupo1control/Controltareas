@@ -29,7 +29,9 @@ public class ControladorTarea {
             @ApiResponse(code = 201, message = "Tareas encontradas correctamente"),
             @ApiResponse(code = 404, message = "Tareas no encontradas")
     })
-    public ResponseEntity<?> obtenerListaTareas() { return ResponseEntity.ok(this.servicio.obtenerTareas()); }
+    public ResponseEntity<?> obtenerListaTareas() {
+        return ResponseEntity.ok(this.servicio.obtenerTareas());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Tarea", notes = "Servicio para ingresar una nueva Tarea")

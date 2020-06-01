@@ -30,7 +30,9 @@ public class ControladorFlujoTarea {
             @ApiResponse(code = 201, message = "Flujos encontradas correctamente"),
             @ApiResponse(code = 404, message = "Flujos no encontradas")
     })
-    public ResponseEntity<?> obtenerListaFlujoTarea() { return ResponseEntity.ok(this.servicio.obtenerFlujosTareas()); }
+    public ResponseEntity<?> obtenerListaFlujoTarea() {
+        return ResponseEntity.ok(this.servicio.obtenerFlujosTareas());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar FlujoTarea", notes = "Servicio para ingresar un nuevo FlujoTarea")

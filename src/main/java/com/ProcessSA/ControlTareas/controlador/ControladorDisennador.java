@@ -30,7 +30,9 @@ public class ControladorDisennador {
             @ApiResponse(code = 201, message = "Diseñadores encontrados correctamente"),
             @ApiResponse(code = 404, message = "Diseñadores no encontrados")
     })
-    public ResponseEntity<?> obtenerListaDisennadores() { return ResponseEntity.ok(this.servicio.obtenerDisennadores()); }
+    public ResponseEntity<?> obtenerListaDisennadores() {
+        return ResponseEntity.ok(this.servicio.obtenerDisennadores());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Diseñador", notes = "Servicio para ingresar una nuevo Diseñador")

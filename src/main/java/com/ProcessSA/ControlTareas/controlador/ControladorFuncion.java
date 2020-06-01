@@ -29,7 +29,9 @@ public class ControladorFuncion {
             @ApiResponse(code = 201, message = "Funciones encontradas correctamente"),
             @ApiResponse(code = 404, message = "Funciones no encontradas")
     })
-    public ResponseEntity<?> obtenerListaFunciones() { return ResponseEntity.ok(this.servicio.obtenerFunciones()); }
+    public ResponseEntity<?> obtenerListaFunciones() {
+        return ResponseEntity.ok(this.servicio.obtenerFunciones());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Funcion", notes = "Servicio para ingresar una nueva Funcion")

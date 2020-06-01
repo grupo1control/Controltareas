@@ -31,7 +31,9 @@ public class ControladorContrato {
             @ApiResponse(code = 201, message = "Contratos encontradas correctamente"),
             @ApiResponse(code = 404, message = "Contratos no encontradas")
     })
-    public ResponseEntity<?> obtenerListaContrato() { return ResponseEntity.ok(this.servicio.obtenerContratos()); }
+    public ResponseEntity<?> obtenerListaContrato() {
+        return ResponseEntity.ok(this.servicio.obtenerContratos());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Contrato", notes = "Servicio para ingresar un nuevo Contrato")
@@ -50,8 +52,8 @@ public class ControladorContrato {
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
     public ResponseEntity<?> actualizarContrato(
-            @PathVariable("rutPersona")String rutPersona,
-            @PathVariable("rutEmpresa")String rutEmpresa,
+            @PathVariable("rutPersona") String rutPersona,
+            @PathVariable("rutEmpresa") String rutEmpresa,
             int salario, String cargo, String funcion
     ) {
         return new ResponseEntity<>(this.servicio.registroContrato(rutPersona, rutEmpresa, salario, cargo, funcion), HttpStatus.OK);
@@ -64,8 +66,8 @@ public class ControladorContrato {
             @ApiResponse(code = 404, message = "Funcion no encontrada")
     })
     public ResponseEntity<?> eliminarContrato(
-            @PathVariable("rutPersona")String rutPersona,
-            @PathVariable("rutEmpresa")String rutEmpresa
+            @PathVariable("rutPersona") String rutPersona,
+            @PathVariable("rutEmpresa") String rutEmpresa
     ) {
         return new ResponseEntity<>(this.servicio.eliminarContrato(rutPersona, rutEmpresa), HttpStatus.OK);
     }
@@ -77,7 +79,7 @@ public class ControladorContrato {
             @ApiResponse(code = 404, message = "Contrato no encontrado")
     })
     public ResponseEntity<?> obtenerContrato(
-            @PathVariable("rut")String rut
+            @PathVariable("rut") String rut
     ) {
         return ResponseEntity.ok(this.servicio.obtenerContrato(rut));
     }

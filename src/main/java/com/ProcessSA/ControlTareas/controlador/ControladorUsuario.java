@@ -28,7 +28,9 @@ public class ControladorUsuario {
             @ApiResponse(code = 201, message = "Usuarios encontrados correctamente"),
             @ApiResponse(code = 404, message = "Usuarios no encontrados")
     })
-    public ResponseEntity<?> obtenerListaUsuarios() { return ResponseEntity.ok(this.servicio.obtenerUsuarios()); }
+    public ResponseEntity<?> obtenerListaUsuarios() {
+        return ResponseEntity.ok(this.servicio.obtenerUsuarios());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Usuario", notes = "Servicio para ingresar un nuevo Usuario")

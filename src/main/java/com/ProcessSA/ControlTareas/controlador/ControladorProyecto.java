@@ -30,7 +30,9 @@ public class ControladorProyecto {
             @ApiResponse(code = 201, message = "Proyectos encontrados correctamente"),
             @ApiResponse(code = 404, message = "Proyectos no encontrados")
     })
-    public ResponseEntity<?> obtenerListaProyectos() { return ResponseEntity.ok(this.servicio.obtenerProyectos()); }
+    public ResponseEntity<?> obtenerListaProyectos() {
+        return ResponseEntity.ok(this.servicio.obtenerProyectos());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Proyecto", notes = "Servicio para ingresar una nuevo Proyecto")
@@ -48,7 +50,7 @@ public class ControladorProyecto {
             @ApiResponse(code = 201, message = "Proyecto actualizado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> actualizarProyecto(@PathVariable("codigo") Long codigo, String nombre, String inputEstado, String rut_empresa, int id_administrador) {
+    public ResponseEntity<?> actualizarProyecto(@PathVariable("codigo") Long codigo, String nombre, String inputEstado, String rut_empresa, Long id_administrador) {
         return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador), HttpStatus.OK);
     }
 
@@ -71,4 +73,5 @@ public class ControladorProyecto {
     public ResponseEntity<?> obtenerProyecto(@PathVariable("codigo") Long codigo) {
         return ResponseEntity.ok(this.servicio.obtenerProyecto(codigo));
     }
+
 }

@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.sql.Date;
 
 /**
@@ -30,7 +31,9 @@ public class ControladorPersona {
             @ApiResponse(code = 201, message = "Personas encontradas correctamente"),
             @ApiResponse(code = 404, message = "Personas no encontradas")
     })
-    public ResponseEntity<?> obtenerListaPersonas() { return ResponseEntity.ok(this.servicio.obtenerPersonas()); }
+    public ResponseEntity<?> obtenerListaPersonas() {
+        return ResponseEntity.ok(this.servicio.obtenerPersonas());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Persona", notes = "Servicio para ingresar una nueva Persona")

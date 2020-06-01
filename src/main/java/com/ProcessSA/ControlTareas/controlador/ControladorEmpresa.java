@@ -31,7 +31,9 @@ public class ControladorEmpresa {
             @ApiResponse(code = 201, message = "Empresas encontradas correctamente"),
             @ApiResponse(code = 404, message = "Empresas no encontradas")
     })
-    public ResponseEntity<?> obtenerListaEmpresas() { return ResponseEntity.ok(this.servicio.obtenerEmpresas()); }
+    public ResponseEntity<?> obtenerListaEmpresas() {
+        return ResponseEntity.ok(this.servicio.obtenerEmpresas());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Empresa", notes = "Servicio para ingresar una nueva Empresa")

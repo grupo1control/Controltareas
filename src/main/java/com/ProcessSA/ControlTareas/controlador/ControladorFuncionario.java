@@ -29,7 +29,9 @@ public class ControladorFuncionario {
             @ApiResponse(code = 201, message = "Funcionarios encontrados correctamente"),
             @ApiResponse(code = 404, message = "Funcionarios no encontrados")
     })
-    public ResponseEntity<?> obtenerListaFuncionarios() { return ResponseEntity.ok(this.servicio.obtenerFuncionarios()); }
+    public ResponseEntity<?> obtenerListaFuncionarios() {
+        return ResponseEntity.ok(this.servicio.obtenerFuncionarios());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Funcionario", notes = "Servicio para ingresar un nuevo Funcionario")
