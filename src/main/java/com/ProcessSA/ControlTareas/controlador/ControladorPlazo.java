@@ -39,7 +39,7 @@ public class ControladorPlazo {
             @ApiResponse(code = 201, message = "Plazo creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarPlazo(Date fecha, long codigoTarea) {
+    public ResponseEntity<?> ingresarPlazo(Date fecha, Long codigoTarea) {
         return new ResponseEntity<>(this.servicio.registroPlazo(fecha, codigoTarea), HttpStatus.CREATED);
     }
 

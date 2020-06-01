@@ -90,7 +90,7 @@ public class RepositorioUnidadInterna {
      *
      * @return
      */
-    public ArrayList spGetUi(long codigo) {
+    public ArrayList spGetUi(Long codigo) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_UI");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);

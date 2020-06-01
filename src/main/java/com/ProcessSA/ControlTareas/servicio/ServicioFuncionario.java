@@ -38,7 +38,7 @@ public class ServicioFuncionario {
      * @return
      */
     @Transactional
-    public ArrayList registroFuncionario(long id) {
+    public ArrayList registroFuncionario(Long id) {
         ArrayList registro = repositorio.spRegFuncionario(id);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
@@ -53,7 +53,7 @@ public class ServicioFuncionario {
      * @param id
      * @return
      */
-    public ArrayList obtenerFuncionario(long id) {
+    public ArrayList obtenerFuncionario(Long id) {
         ArrayList entidad = repositorio.spGetFuncionario(id);
         System.out.println("Resultado: \n" + entidad);
         return entidad;
@@ -66,7 +66,7 @@ public class ServicioFuncionario {
      * @return
      */
     @Transactional
-    public ArrayList eliminarFuncionario(long id) {
+    public ArrayList eliminarFuncionario(Long id) {
         ArrayList retiro = repositorio.spDelFuncionario(id);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));

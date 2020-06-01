@@ -89,7 +89,7 @@ public class RepositorioFuncion {
      *
      * @return
      */
-    public ArrayList spGetFuncion(long codigo) {
+    public ArrayList spGetFuncion(Long codigo) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_FUNCION");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);

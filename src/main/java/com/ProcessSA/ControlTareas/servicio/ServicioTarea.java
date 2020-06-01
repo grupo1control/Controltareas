@@ -53,7 +53,7 @@ public class ServicioTarea {
      * @return
      */
     @Transactional
-    public ArrayList eliminarTarea(long codigo) {
+    public ArrayList eliminarTarea(Long codigo) {
         ArrayList retiro = repositorio.spDelTarea(codigo);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));

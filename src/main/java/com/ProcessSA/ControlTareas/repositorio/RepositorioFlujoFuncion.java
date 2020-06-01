@@ -108,7 +108,7 @@ public class RepositorioFlujoFuncion {
      * @param codigoFuncion
      * @return
      */
-    public ArrayList spGetFlujoF(long codigoFuncion, long codigoProceso) {
+    public ArrayList spGetFlujoF(Long codigoFuncion, Long codigoProceso) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_FLUJO_F");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_FUNCION", Long.class, ParameterMode.IN);

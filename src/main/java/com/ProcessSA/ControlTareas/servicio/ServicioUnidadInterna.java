@@ -52,7 +52,7 @@ public class ServicioUnidadInterna {
      * @return
      */
     @Transactional
-    public ArrayList eliminarUnidadInterna(long codigo) {
+    public ArrayList eliminarUnidadInterna(Long codigo) {
         ArrayList retiro = repositorio.spDelUi(codigo);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));

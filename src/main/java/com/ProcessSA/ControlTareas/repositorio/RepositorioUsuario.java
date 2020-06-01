@@ -170,7 +170,7 @@ public class RepositorioUsuario {
      * @param id
      * @return
      */
-    public ArrayList spDelUsuario(long id) {
+    public ArrayList spDelUsuario(Long id) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_USUARIO");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);

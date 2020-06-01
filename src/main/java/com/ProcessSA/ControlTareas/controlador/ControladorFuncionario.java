@@ -37,7 +37,7 @@ public class ControladorFuncionario {
             @ApiResponse(code = 201, message = "Funcionario creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarFuncionario(long codigo) {
+    public ResponseEntity<?> ingresarFuncionario(Long codigo) {
         return new ResponseEntity<>(this.servicio.registroFuncionario(codigo), HttpStatus.CREATED);
     }
 
@@ -58,7 +58,7 @@ public class ControladorFuncionario {
             @ApiResponse(code = 201, message = "Funcionario eliminado correctamente"),
             @ApiResponse(code = 404, message = "Funcionario no encontrado")
     })
-    public ResponseEntity<?> eliminarFuncionario(@PathVariable("id") long id) {
+    public ResponseEntity<?> eliminarFuncionario(@PathVariable("id") Long id) {
         return new ResponseEntity<>(this.servicio.eliminarFuncionario(id), HttpStatus.OK);
     }
 

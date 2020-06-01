@@ -42,7 +42,7 @@ public class ServicioProyecto {
      * @return
      */
     @Transactional
-    public ArrayList registroProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, long id_administrador) {
+    public ArrayList registroProyecto(Long codigo, String nombre, String inputEstado, String rut_empresa, Long id_administrador) {
         ArrayList registro = repositorio.spRegProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
@@ -57,7 +57,7 @@ public class ServicioProyecto {
      * @return
      */
     @Transactional
-    public ArrayList eliminarProyecto(long codigo) {
+    public ArrayList eliminarProyecto(Long codigo) {
         ArrayList retiro = repositorio.spDelProyecto(codigo);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
@@ -70,7 +70,7 @@ public class ServicioProyecto {
      * @param codigo
      * @return
      */
-    public ArrayList obtenerProyecto(long codigo) {
+    public ArrayList obtenerProyecto(Long codigo) {
         ArrayList entidad = repositorio.spGetProyecto(codigo);
         System.out.println("Resultado: \n" + entidad);
         return entidad;

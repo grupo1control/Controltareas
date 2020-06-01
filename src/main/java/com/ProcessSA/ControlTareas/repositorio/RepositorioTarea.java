@@ -89,7 +89,7 @@ public class RepositorioTarea {
      *
      * @return
      */
-    public ArrayList spGetTarea(long codigo) {
+    public ArrayList spGetTarea(Long codigo) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_TAREA");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);

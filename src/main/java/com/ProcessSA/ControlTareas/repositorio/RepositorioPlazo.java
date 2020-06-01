@@ -102,7 +102,7 @@ public class RepositorioPlazo {
      *
      * @return
      */
-    public ArrayList spGetPlazo(long codigoTarea) {
+    public ArrayList spGetPlazo(Long codigoTarea) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_PLAZO");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);

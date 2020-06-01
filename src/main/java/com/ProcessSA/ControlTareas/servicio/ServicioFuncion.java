@@ -53,7 +53,7 @@ public class ServicioFuncion {
      * @return
      */
     @Transactional
-    public ArrayList eliminarFuncion(long codigo) {
+    public ArrayList eliminarFuncion(Long codigo) {
         ArrayList retiro = repositorio.spDelFuncion(codigo);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));

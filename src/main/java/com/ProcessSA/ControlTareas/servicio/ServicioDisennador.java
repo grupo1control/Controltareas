@@ -38,7 +38,7 @@ public class ServicioDisennador {
      * @return
      */
     @Transactional
-    public ArrayList registroDisennador(long id) {
+    public ArrayList registroDisennador(Long id) {
         ArrayList registro = repositorio.spRegDisennador(id);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
@@ -53,7 +53,7 @@ public class ServicioDisennador {
      * @param id
      * @return
      */
-    public ArrayList obtenerDisennador(long id) {
+    public ArrayList obtenerDisennador(Long id) {
         ArrayList entidad = repositorio.spGetDisennador(id);
         System.out.println("Resultado: \n" + entidad);
         return entidad;
@@ -66,7 +66,7 @@ public class ServicioDisennador {
      * @return
      */
     @Transactional
-    public ArrayList eliminarDisennador(long id) {
+    public ArrayList eliminarDisennador(Long id) {
         ArrayList retiro = repositorio.spDelDisennador(id);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));

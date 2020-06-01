@@ -10,12 +10,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /*
  * Convensión Java Spring:
  *   public interface RepositorioDisennador implements JpaRepository<[Clase], [tipoDatoID]>(){ }
  */
-
 /**
  * Clase para definir las operaciones de BD relacionadas con DISENNADOR
  */
@@ -125,10 +123,10 @@ public class RepositorioDisennador {
      * @param id
      * @return
      */
-    public ArrayList spRegDisennador(long id) {
+    public ArrayList spRegDisennador(Long id) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_DISENNADOR");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ID_SALIDA", Long.class, ParameterMode.OUT);
@@ -155,15 +153,15 @@ public class RepositorioDisennador {
      * @param id
      * @return
      */
-    public ArrayList spDelDisennador(long id) {
+    public ArrayList spDelDisennador(Long id) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_DISENNADOR");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_ID",id);
-        // Ejecutarprocedimiento
+        // Ejecutar procedimiento
         consultaProcedimiento.execute();
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");

@@ -124,10 +124,10 @@ public class RepositorioAdministrador {
      * @param id
      * @return
      */
-    public ArrayList spRegAdministrador(long id) {
+    public ArrayList spRegAdministrador(Long id) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_ADMINISTRADOR");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ID_SALIDA", Long.class, ParameterMode.OUT);
@@ -154,10 +154,10 @@ public class RepositorioAdministrador {
      * @param id
      * @return
      */
-    public ArrayList spDelAdministrador(long id) {
+    public ArrayList spDelAdministrador(Long id) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_ADMINISTRADOR");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada

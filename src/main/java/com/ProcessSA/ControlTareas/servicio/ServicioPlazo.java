@@ -53,7 +53,7 @@ public class ServicioPlazo {
      * @return
      */
     @Transactional
-    public ArrayList eliminarPlazo(long codigoTarea, byte contador) {
+    public ArrayList eliminarPlazo(Long codigoTarea, byte contador) {
         ArrayList retiro = repositorio.spDelPlazo(codigoTarea, contador);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));

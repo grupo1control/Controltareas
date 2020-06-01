@@ -59,7 +59,7 @@ public class ServicioProceso {
      * @return
      */
     @Transactional
-    public ArrayList eliminarProceso(long codigo) {
+    public ArrayList eliminarProceso(Long codigo) {
         ArrayList retiro = repositorio.spDelProceso(codigo);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
@@ -72,7 +72,7 @@ public class ServicioProceso {
      * @param codigo
      * @return
      */
-    public ArrayList obtenerProceso(long codigo) {
+    public ArrayList obtenerProceso(Long codigo) {
         ArrayList entidad = repositorio.spGetProceso(codigo);
         System.out.println("Resultado: \n" + entidad);
         return entidad;

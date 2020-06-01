@@ -56,7 +56,7 @@ public class ControladorUsuario {
             @ApiResponse(code = 201, message = "Usuario eliminado correctamente"),
             @ApiResponse(code = 404, message = "Usuario no encontrado")
     })
-    public ResponseEntity<?> eliminarUsuario(@PathVariable("id") long id) {
+    public ResponseEntity<?> eliminarUsuario(@PathVariable("id") Long id) {
         return new ResponseEntity<>(this.servicio.eliminarUsuario(id), HttpStatus.OK);
     }
 
@@ -66,7 +66,7 @@ public class ControladorUsuario {
             @ApiResponse(code = 201, message = "Usuario encontrado correctamente"),
             @ApiResponse(code = 404, message = "Usuario no encontrado")
     })
-    public ResponseEntity<?> obtenerUsuario(@PathVariable("id") long id) {
+    public ResponseEntity<?> obtenerUsuario(@PathVariable("id") Long id) {
         return ResponseEntity.ok(this.servicio.obtenerUsuario(id));
     }
 }

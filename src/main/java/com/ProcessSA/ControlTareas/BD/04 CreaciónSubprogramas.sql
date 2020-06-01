@@ -2530,6 +2530,8 @@ BEGIN
             DESCRIPCION = in_descripcion,
             ESTADO = in_estado,
             CODIGO_UI = in_codigo_ui,
+            CODIGO_PROYECTO = in_codigo_proyecto,
+            ID_DISENNADOR = in_id_disennador,
             MODIFICADO = SYSDATE()
         WHERE CODIGO = in_codigo
         RETURNING codigo INTO OUT_cod_SALIDA;

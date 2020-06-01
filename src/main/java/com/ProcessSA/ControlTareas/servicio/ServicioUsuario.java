@@ -55,7 +55,7 @@ public class ServicioUsuario {
      * @return
      */
     @Transactional
-    public ArrayList eliminarUsuario(long id) {
+    public ArrayList eliminarUsuario(Long id) {
         ArrayList retiro = repositorio.spDelUsuario(id);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
@@ -68,7 +68,7 @@ public class ServicioUsuario {
      * @param id
      * @return
      */
-    public ArrayList obtenerUsuario(long id) {
+    public ArrayList obtenerUsuario(Long id) {
         ArrayList entidad = repositorio.spGetUsuario(id);
         System.out.println("Resultado: \n" + entidad);
         return entidad;

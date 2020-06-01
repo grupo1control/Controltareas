@@ -37,7 +37,7 @@ public class ControladorAdministrador {
             @ApiResponse(code = 201, message = "Administrador creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarAdministrador(long codigo) {
+    public ResponseEntity<?> ingresarAdministrador(Long codigo) {
         return new ResponseEntity<>(this.servicio.registroAdministrador(codigo), HttpStatus.CREATED);
     }
 
@@ -58,7 +58,7 @@ public class ControladorAdministrador {
             @ApiResponse(code = 201, message = "Administrador eliminado correctamente"),
             @ApiResponse(code = 404, message = "Administrador no encontrado")
     })
-    public ResponseEntity<?> eliminarAdministrador(@PathVariable("id") long id) {
+    public ResponseEntity<?> eliminarAdministrador(@PathVariable("id") Long id) {
         return new ResponseEntity<>(this.servicio.eliminarAdministrador(id), HttpStatus.OK);
     }
 

@@ -38,7 +38,7 @@ public class ControladorDisennador {
             @ApiResponse(code = 201, message = "Diseñador creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarDisennador(long codigo) {
+    public ResponseEntity<?> ingresarDisennador(Long codigo) {
         return new ResponseEntity<>(this.servicio.registroDisennador(codigo), HttpStatus.CREATED);
     }
 
@@ -59,7 +59,7 @@ public class ControladorDisennador {
             @ApiResponse(code = 201, message = "Diseñador eliminado correctamente"),
             @ApiResponse(code = 404, message = "Diseñador no encontrado")
     })
-    public ResponseEntity<?> eliminarDisennador(@PathVariable("id") long id) {
+    public ResponseEntity<?> eliminarDisennador(@PathVariable("id") Long id) {
         return new ResponseEntity<>(this.servicio.eliminarDisennador(id), HttpStatus.OK);
     }
 

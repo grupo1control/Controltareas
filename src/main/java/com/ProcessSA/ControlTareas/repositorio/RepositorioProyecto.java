@@ -109,10 +109,10 @@ public class RepositorioProyecto {
      * @param codigo
      * @return
      */
-    public ArrayList spGetProyecto(long codigo) {
+    public ArrayList spGetProyecto(Long codigo) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_PROYECTO");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_PROYECTO", void.class, ParameterMode.REF_CURSOR);
@@ -140,7 +140,7 @@ public class RepositorioProyecto {
      * @param codigo
      * @return
      */
-    public ArrayList spDelProyecto(long codigo) {
+    public ArrayList spDelProyecto(Long codigo) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_PROYECTO");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);
@@ -172,17 +172,17 @@ public class RepositorioProyecto {
      * @param id_administrador
      * @return
      */
-    public ArrayList spRegProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, long id_administrador) {
+    public ArrayList spRegProyecto(Long codigo, String nombre, String inputEstado, String rut_empresa, Long id_administrador) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_PROYECTO");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_NOMBRE", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_ESTADO", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_RUT_EMPRESA", String.class, ParameterMode.IN);
-        consultaProcedimiento.registerStoredProcedureParameter("IN_ID_ADMINISTRADOR", long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID_ADMINISTRADOR", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", long.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", Long.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_CODIGO", codigo);
         consultaProcedimiento.setParameter("IN_NOMBRE", nombre);
@@ -194,7 +194,7 @@ public class RepositorioProyecto {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Long codigoSalida = (Long) consultaProcedimiento.getOutputParameterValue("OUT_COD_SALIDA");
+        Object codigoSalida = consultaProcedimiento.getOutputParameterValue("OUT_COD_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);

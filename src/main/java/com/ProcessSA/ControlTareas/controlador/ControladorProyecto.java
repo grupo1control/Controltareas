@@ -38,7 +38,7 @@ public class ControladorProyecto {
             @ApiResponse(code = 201, message = "Proyecto creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, long id_administrador) {
+    public ResponseEntity<?> ingresarProyecto(Long codigo, String nombre, String inputEstado, String rut_empresa, Long id_administrador) {
         return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador), HttpStatus.CREATED);
     }
 
@@ -48,7 +48,7 @@ public class ControladorProyecto {
             @ApiResponse(code = 201, message = "Proyecto actualizado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> actualizarProyecto(@PathVariable("codigo") long codigo, String nombre, String inputEstado, String rut_empresa, int id_administrador) {
+    public ResponseEntity<?> actualizarProyecto(@PathVariable("codigo") Long codigo, String nombre, String inputEstado, String rut_empresa, int id_administrador) {
         return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador), HttpStatus.OK);
     }
 
