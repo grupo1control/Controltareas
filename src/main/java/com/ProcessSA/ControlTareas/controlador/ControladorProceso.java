@@ -29,7 +29,9 @@ public class ControladorProceso {
             @ApiResponse(code = 201, message = "Procesos encontrados correctamente"),
             @ApiResponse(code = 404, message = "Procesos no encontrados")
     })
-    public ResponseEntity<?> obtenerListaProcesos() { return ResponseEntity.ok(this.servicio.obtenerProcesos()); }
+    public ResponseEntity<?> obtenerListaProcesos() {
+        return ResponseEntity.ok(this.servicio.obtenerProcesos());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Proceso", notes = "Servicio para ingresar una nuevo Proceso")
@@ -37,8 +39,8 @@ public class ControladorProceso {
             @ApiResponse(code = 201, message = "Proceso creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarProceso(Long codigo, Byte indice, String nombre, String descripcion,String input_estado, Long codigo_ui,Long id_disennador, Long codigo_proyecto) {
-        return new ResponseEntity<>(this.servicio.registroProceso(codigo, indice, nombre, descripcion,input_estado, codigo_ui,id_disennador, codigo_proyecto), HttpStatus.CREATED);
+    public ResponseEntity<?> ingresarProceso(Long codigo, Byte indice, String nombre, String descripcion, String input_estado, Long codigo_ui, Long id_disennador, Long codigo_proyecto) {
+        return new ResponseEntity<>(this.servicio.registroProceso(codigo, indice, nombre, descripcion, input_estado, codigo_ui, id_disennador, codigo_proyecto), HttpStatus.CREATED);
     }
 
     @PutMapping("/actualizar/{codigo}")
@@ -47,8 +49,8 @@ public class ControladorProceso {
             @ApiResponse(code = 201, message = "Proceso actualizado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> actualizarProceso(@PathVariable("codigo") Long codigo, Byte indice, String nombre, String descripcion,String input_estado, Long codigo_ui,Long id_disennador, Long codigo_proyecto) {
-        return new ResponseEntity<>(this.servicio.registroProceso(codigo, indice, nombre, descripcion,input_estado, codigo_ui,id_disennador, codigo_proyecto), HttpStatus.OK);
+    public ResponseEntity<?> actualizarProceso(@PathVariable("codigo") Long codigo, Byte indice, String nombre, String descripcion, String input_estado, Long codigo_ui, Long id_disennador, Long codigo_proyecto) {
+        return new ResponseEntity<>(this.servicio.registroProceso(codigo, indice, nombre, descripcion, input_estado, codigo_ui, id_disennador, codigo_proyecto), HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/{codigo}")

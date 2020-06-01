@@ -30,7 +30,9 @@ public class ControladorProyecto {
             @ApiResponse(code = 201, message = "Proyectos encontrados correctamente"),
             @ApiResponse(code = 404, message = "Proyectos no encontrados")
     })
-    public ResponseEntity<?> obtenerListaProyectos() { return ResponseEntity.ok(this.servicio.obtenerProyectos()); }
+    public ResponseEntity<?> obtenerListaProyectos() {
+        return ResponseEntity.ok(this.servicio.obtenerProyectos());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Proyecto", notes = "Servicio para ingresar una nuevo Proyecto")
@@ -39,7 +41,7 @@ public class ControladorProyecto {
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
     public ResponseEntity<?> ingresarProyecto(long codigo, String nombre, String inputEstado, String rut_empresa, long id_administrador) {
-        return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador), HttpStatus.CREATED);
+        return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado, rut_empresa, id_administrador), HttpStatus.CREATED);
     }
 
     @PutMapping("/actualizar/{codigo}")
@@ -49,7 +51,7 @@ public class ControladorProyecto {
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
     public ResponseEntity<?> actualizarProyecto(@PathVariable("codigo") long codigo, String nombre, String inputEstado, String rut_empresa, int id_administrador) {
-        return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador), HttpStatus.OK);
+        return new ResponseEntity<>(this.servicio.registroProyecto(codigo, nombre, inputEstado, rut_empresa, id_administrador), HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/{codigo}")

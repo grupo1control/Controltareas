@@ -30,7 +30,9 @@ public class ControladorUnidadInterna {
             @ApiResponse(code = 201, message = "Unidades encontradas correctamente"),
             @ApiResponse(code = 404, message = "Unidades no encontradas")
     })
-    public ResponseEntity<?> obtenerListaUnidadesInternas() { return ResponseEntity.ok(this.servicio.obtenerUnidadesInternas()); }
+    public ResponseEntity<?> obtenerListaUnidadesInternas() {
+        return ResponseEntity.ok(this.servicio.obtenerUnidadesInternas());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Unidad Interna", notes = "Servicio para ingresar una nueva Unidad Interna")

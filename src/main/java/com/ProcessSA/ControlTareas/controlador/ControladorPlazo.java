@@ -31,7 +31,9 @@ public class ControladorPlazo {
             @ApiResponse(code = 201, message = "Plazos encontrados correctamente"),
             @ApiResponse(code = 404, message = "Plazos no encontradas")
     })
-    public ResponseEntity<?> obtenerListaPlazos() { return ResponseEntity.ok(this.servicio.obtenerPlazos()); }
+    public ResponseEntity<?> obtenerListaPlazos() {
+        return ResponseEntity.ok(this.servicio.obtenerPlazos());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Plazo", notes = "Servicio para ingresar un nuevo Plazo")
@@ -52,7 +54,7 @@ public class ControladorPlazo {
     public ResponseEntity<?> eliminarPlazo(
             @PathVariable("codigoTarea") Long codigoTarea,
             @PathVariable("contador") byte contador
-            ) {
+    ) {
         return new ResponseEntity<>(this.servicio.eliminarPlazo(codigoTarea, contador), HttpStatus.OK);
     }
 

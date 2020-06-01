@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/administrador")
 @Api(tags = "Administrador")
 public class ControladorAdministrador {
-    
+
     private final ServicioAdministrador servicio;
 
     public ControladorAdministrador(ServicioAdministrador servicio) {
@@ -29,7 +29,9 @@ public class ControladorAdministrador {
             @ApiResponse(code = 201, message = "Administradores encontrados correctamente"),
             @ApiResponse(code = 404, message = "Administradores no encontrados")
     })
-    public ResponseEntity<?> obtenerListaAdministradores() { return ResponseEntity.ok(this.servicio.obtenerAdministradores()); }
+    public ResponseEntity<?> obtenerListaAdministradores() {
+        return ResponseEntity.ok(this.servicio.obtenerAdministradores());
+    }
 
     @PostMapping("/ingresar")
     @ApiOperation(value = "Ingresar Administrador", notes = "Servicio para ingresar un nuevo Administrador")
