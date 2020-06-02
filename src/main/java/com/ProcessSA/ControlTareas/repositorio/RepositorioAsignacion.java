@@ -14,7 +14,6 @@ import java.util.List;
  * Convensión Java Spring:
  *   public interface RepositorioAsignacion implements JpaRepository<[Clase], [tipoDatoID]>(){ }
  */
-
 /**
  * Clase para definir las operaciones de BD relacionadas con Asignacion
  */
@@ -180,18 +179,18 @@ public class RepositorioAsignacion {
      * @param codigoUi
      * @param idUsuario
      * @param rol
-     * @param inputstado
+     * @param inputEstado
      * @param nota
      * @return
      */
-    public ArrayList spRegAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String inputstado, String nota) {
+    public ArrayList spRegAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String inputEstado, String nota) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_ASIGNACION");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_COSIGO_UI", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID_USUARIO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_ROL", String.class, ParameterMode.IN);
-        consultaProcedimiento.registerStoredProcedureParameter("IN_INPUT_ESTADO", String.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ESTADO", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_NOTA", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
@@ -200,7 +199,7 @@ public class RepositorioAsignacion {
         consultaProcedimiento.setParameter("IN_COSIGO_UI", codigoUi);
         consultaProcedimiento.setParameter("IN_ID_USUARIO", idUsuario);
         consultaProcedimiento.setParameter("IN_ROL", rol);
-        consultaProcedimiento.setParameter("IN_INPUT_ESTADO", inputstado);
+        consultaProcedimiento.setParameter("IN_ESTADO", inputEstado);
         consultaProcedimiento.setParameter("IN_NOTA", nota);
         // Ejecutar procedimiento
         consultaProcedimiento.execute();

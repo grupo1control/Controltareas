@@ -187,7 +187,7 @@ public class RepositorioEmpresa {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        String rutSalida = (String) consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
+        Object rutSalida = consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);

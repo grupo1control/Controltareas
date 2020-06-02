@@ -14,6 +14,7 @@ import java.util.ArrayList;
 @Service
 @Transactional(readOnly = true)
 public class ServicioAsignacion {
+
     public final RepositorioAsignacion repositorio;
 
     public ServicioAsignacion(RepositorioAsignacion repositorio) {

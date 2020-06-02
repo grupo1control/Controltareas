@@ -133,11 +133,11 @@ public class RepositorioPlazo {
      * @param contador
      * @return
      */
-    public ArrayList spDelPlazo(Long codigoTarea, byte contador) {
+    public ArrayList spDelPlazo(Long codigoTarea, Byte contador) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_PLAZO");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CONTADOR", byte.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CONTADOR", Byte.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
@@ -171,7 +171,7 @@ public class RepositorioPlazo {
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", byte.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_COD_SALIDA", Byte.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_FECHA", fecha);
         consultaProcedimiento.setParameter("IN_CODIGO_TAREA", codigoTarea);
@@ -180,7 +180,7 @@ public class RepositorioPlazo {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        byte codigoSalida = (byte) consultaProcedimiento.getOutputParameterValue("OUT_COD_SALIDA");
+        Object codigoSalida = consultaProcedimiento.getOutputParameterValue("OUT_COD_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);

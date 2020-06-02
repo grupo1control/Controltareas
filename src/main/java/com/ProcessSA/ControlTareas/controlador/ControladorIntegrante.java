@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 /**
  * Clase que representa el servicio REST de Integrante
  */
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/integrante")
 @Api(tags = "Integrante")
 public class ControladorIntegrante {
+
     private final ServicioIntegrante servicio;
 
     public ControladorIntegrante(ServicioIntegrante servicio) {
@@ -63,4 +63,5 @@ public class ControladorIntegrante {
     public ResponseEntity<?> eliminarIntegrante(@PathVariable("id") Long codigoUi, Long idUsuario) {
         return new ResponseEntity<>(this.servicio.eliminarIntegrante(codigoUi, idUsuario), HttpStatus.OK);
     }
+
 }

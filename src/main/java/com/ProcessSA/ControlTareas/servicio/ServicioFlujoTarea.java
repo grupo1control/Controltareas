@@ -37,7 +37,7 @@ public class ServicioFlujoTarea {
      * @return
              */
     @Transactional
-    public ArrayList registroFlujoTarea(byte indice, Long codigoTarea, Long codigoFuncion) {
+    public ArrayList registroFlujoTarea(Byte indice, Long codigoTarea, Long codigoFuncion) {
         ArrayList registro = repositorio.spRegFlujoT(indice, codigoTarea, codigoFuncion);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
@@ -48,14 +48,13 @@ public class ServicioFlujoTarea {
     /**
      * Elimina un registro de FlujoTarea
      *
-     * @param indice
      * @param codigoTarea
      * @param codigoFuncion
      * @return
      */
     @Transactional
-    public ArrayList eliminarFlujoTarea(byte indice, Long codigoTarea, Long codigoFuncion) {
-        ArrayList retiro = repositorio.spDelFlujoT(indice, codigoTarea, codigoFuncion);
+    public ArrayList eliminarFlujoTarea(Long codigoTarea, Long codigoFuncion) {
+        ArrayList retiro = repositorio.spDelFlujoT(codigoTarea, codigoFuncion);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
         return retiro;

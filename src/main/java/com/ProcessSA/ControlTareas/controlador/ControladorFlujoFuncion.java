@@ -40,7 +40,7 @@ public class ControladorFlujoFuncion {
             @ApiResponse(code = 201, message = "FlujoFuncion creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarFlujoFuncion(byte indice, Long codigoProceso, Long codigoFuncion) {
+    public ResponseEntity<?> ingresarFlujoFuncion(Byte indice, Long codigoProceso, Long codigoFuncion) {
         return new ResponseEntity<>(this.servicio.registroFlujoFuncion(indice, codigoProceso, codigoFuncion), HttpStatus.CREATED);
     }
 
@@ -51,28 +51,27 @@ public class ControladorFlujoFuncion {
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
     public ResponseEntity<?> actualizarFlujoFuncion(
-            @PathVariable("indice") byte indice,
+            @PathVariable("indice") Byte indice,
             @PathVariable("codigoProceso") Long codigoProceso,
             @PathVariable("codigoFuncion") Long codigoFuncion
     ) {
         return new ResponseEntity<>(this.servicio.registroFlujoFuncion(indice, codigoProceso, codigoFuncion), HttpStatus.OK);
     }
 
-    @DeleteMapping("/eliminar/{codigoProceso}-{indice}-{codigoFuncion}")
+    @DeleteMapping("/eliminar/{codigoProceso}-{codigoFuncion}")
     @ApiOperation(value = "Eliminar FlujoFuncion", notes = "Servicio para eliminar un FlujoFuncion")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Funcion eliminada correctamente"),
-            @ApiResponse(code = 404, message = "Funcion no encontrada")
+            @ApiResponse(code = 201, message = "FlujoFuncion eliminado correctamente"),
+            @ApiResponse(code = 404, message = "FlujoFuncion no encontrado")
     })
     public ResponseEntity<?> eliminarFlujoFuncion(
-            @PathVariable("indice") byte indice,
             @PathVariable("codigoProceso") Long codigoProceso,
             @PathVariable("codigoFuncion") Long codigoFuncion
     ) {
-        return new ResponseEntity<>(this.servicio.eliminarFlujoFuncion(indice, codigoProceso, codigoFuncion), HttpStatus.OK);
+        return new ResponseEntity<>(this.servicio.eliminarFlujoFuncion(codigoProceso, codigoFuncion), HttpStatus.OK);
     }
 
-    @GetMapping("/{codigoProceso}-{codigoFuncion}")
+    @GetMapping("/{codigoProceso}-0-{codigoFuncion}")
     @ApiOperation(value = "Obtener registros de FlujoFuncion", notes = "Servicio para obtener datos de registro de FlujoFuncion")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "FlujoFuncion encontrado correctamente"),
@@ -82,6 +81,7 @@ public class ControladorFlujoFuncion {
             @PathVariable("codigoProceso") Long codigoProceso,
             @PathVariable("codigoFuncion") Long codigoFuncion
     ) {
-        return ResponseEntity.ok(this.servicio.obtenerFlujoFuncion(codigoProceso, codigoFuncion));
+        return ResponseEntity.ok(this.servicio.obtenerFlujoFuncion(codigoFuncion, codigoProceso));
     }
+
 }

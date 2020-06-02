@@ -40,7 +40,7 @@ public class ControladorFlujoTarea {
             @ApiResponse(code = 201, message = "FlujoTarea creado correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarFlujoTarea(byte indice, Long codigoTarea, Long codigoFuncion) {
+    public ResponseEntity<?> ingresarFlujoTarea(Byte indice, Long codigoTarea, Long codigoFuncion) {
         return new ResponseEntity<>(this.servicio.registroFlujoTarea(indice, codigoTarea, codigoFuncion), HttpStatus.CREATED);
     }
 
@@ -51,28 +51,27 @@ public class ControladorFlujoTarea {
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
     public ResponseEntity<?> actualizarFlujoTarea(
-            @PathVariable("indice") byte indice,
+            @PathVariable("indice") Byte indice,
             @PathVariable("codigoTarea") Long codigoTarea,
             @PathVariable("codigoFuncion") Long codigoFuncion
     ) {
         return new ResponseEntity<>(this.servicio.registroFlujoTarea(indice, codigoTarea, codigoFuncion), HttpStatus.OK);
     }
 
-    @DeleteMapping("/eliminar/{codigoTarea}-{indice}-{codigoFuncion}")
+    @DeleteMapping("/eliminar/{codigoTarea}-{codigoFuncion}")
     @ApiOperation(value = "Eliminar FlujoTarea", notes = "Servicio para eliminar un FlujoTarea")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Funcion eliminada correctamente"),
-            @ApiResponse(code = 404, message = "Funcion no encontrada")
+            @ApiResponse(code = 201, message = "FlujoTarea eliminado correctamente"),
+            @ApiResponse(code = 404, message = "FlujoTarea no encontrado")
     })
     public ResponseEntity<?> eliminarFlujoTarea(
-            @PathVariable("indice") byte indice,
             @PathVariable("codigoTarea") Long codigoTarea,
             @PathVariable("codigoFuncion") Long codigoFuncion
     ) {
-        return new ResponseEntity<>(this.servicio.eliminarFlujoTarea(indice, codigoTarea, codigoFuncion), HttpStatus.OK);
+        return new ResponseEntity<>(this.servicio.eliminarFlujoTarea(codigoTarea, codigoFuncion), HttpStatus.OK);
     }
 
-    @GetMapping("/{codigoTarea}-{codigoFuncion}")
+    @GetMapping("/{codigoTarea}-0-{codigoFuncion}")
     @ApiOperation(value = "Obtener registros de FlujoTarea", notes = "Servicio para obtener datos de registro de FlujoTarea")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "FlujoTarea encontrado correctamente"),

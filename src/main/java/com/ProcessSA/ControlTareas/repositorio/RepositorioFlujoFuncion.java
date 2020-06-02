@@ -69,7 +69,6 @@ public class RepositorioFlujoFuncion {
                 entidad = new FlujoFuncion();
                 pkEntidad = new FlujoFuncionPK();
 
-                // Por validar
                 pkEntidad.setIndice(rs.getByte("indice"));
                 pkEntidad.setFkFuncion(
                         (Funcion) new RepositorioFuncion(this.gestorDeEntidad)
@@ -115,7 +114,7 @@ public class RepositorioFlujoFuncion {
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_PROCESO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_FLUJO_T", void.class, ParameterMode.REF_CURSOR);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_FLUJO_F", void.class, ParameterMode.REF_CURSOR);
         // Asignar valor de entrada
         consultaProcedimiento.setParameter("IN_CODIGO_FUNCION", codigoFuncion);
         consultaProcedimiento.setParameter("IN_CODIGO_PROCESO", codigoProceso);
@@ -137,21 +136,18 @@ public class RepositorioFlujoFuncion {
      * Ejecuta el procedimiento almacenado SP_DEL_FLUJO_F,
      * para eliminar un registro de FlujoFuncion,
      * y retorna un objeto ArrayList con los resultados obtenidos
-     * @param indice
      * @param codigoProceso
      * @param codigoFuncion
      * @return
      */
-    public ArrayList spDelFlujoF(byte indice, Long codigoProceso, Long codigoFuncion) {
+    public ArrayList spDelFlujoF(Long codigoProceso, Long codigoFuncion) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_DEL_FLUJO_F");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_INDICE", byte.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_PROCESO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_FUNCION", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
-        consultaProcedimiento.setParameter("IN_INDICE", indice);
         consultaProcedimiento.setParameter("IN_CODIGO_PROCESO", codigoProceso);
         consultaProcedimiento.setParameter("IN_CODIGO_FUNCION", codigoFuncion);
         // Ejecutarprocedimiento
@@ -176,15 +172,15 @@ public class RepositorioFlujoFuncion {
      * @param codigoFuncion
      * @return
      */
-    public ArrayList spRegFlujoF(byte indice, Long codigoProceso, Long codigoFuncion) {
+    public ArrayList spRegFlujoF(Byte indice, Long codigoProceso, Long codigoFuncion) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_FLUJO_F");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_INDICE", byte.class, ParameterMode.IN);
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_INDICE", Byte.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_PROCESO", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_FUNCION", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
-        consultaProcedimiento.registerStoredProcedureParameter("OUT_INDEX_SALIDA", byte.class, ParameterMode.OUT);
+        consultaProcedimiento.registerStoredProcedureParameter("OUT_INDEX_SALIDA", Byte.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_INDICE", indice);
         consultaProcedimiento.setParameter("IN_CODIGO_PROCESO", codigoProceso);
@@ -194,7 +190,7 @@ public class RepositorioFlujoFuncion {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        byte codigoSalida = (byte) consultaProcedimiento.getOutputParameterValue("OUT_INDEX_SALIDA");
+        Object codigoSalida = consultaProcedimiento.getOutputParameterValue("OUT_INDEX_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);

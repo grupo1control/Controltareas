@@ -36,7 +36,7 @@ public class ServicioFlujoFuncion {
      * @return
      */
     @Transactional
-    public ArrayList registroFlujoFuncion(byte indice, Long codigoProceso, Long codigoFuncion) {
+    public ArrayList registroFlujoFuncion(Byte indice, Long codigoProceso, Long codigoFuncion) {
         ArrayList registro = repositorio.spRegFlujoF(indice, codigoProceso, codigoFuncion);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
@@ -47,14 +47,13 @@ public class ServicioFlujoFuncion {
     /**
      * Elimina un registro de FlujoFuncion
      *
-     * @param indice
      * @param codigoProceso
      * @param codigoFuncion
      * @return
      */
     @Transactional
-    public ArrayList eliminarFlujoFuncion(byte indice, Long codigoProceso, Long codigoFuncion) {
-        ArrayList retiro = repositorio.spDelFlujoF(indice, codigoProceso, codigoFuncion);
+    public ArrayList eliminarFlujoFuncion(Long codigoProceso, Long codigoFuncion) {
+        ArrayList retiro = repositorio.spDelFlujoF(codigoProceso, codigoFuncion);
         System.out.println("Glosa de respuesta: " + retiro.get(0));
         System.out.println("Código de estado: " + retiro.get(1));
         return retiro;
@@ -66,8 +65,8 @@ public class ServicioFlujoFuncion {
      * @param codigoFuncion
      * @return
      */
-    public ArrayList obtenerFlujoFuncion(Long codigoProceso, Long codigoFuncion) {
-        ArrayList entidad = repositorio.spGetFlujoF(codigoProceso, codigoFuncion);
+    public ArrayList obtenerFlujoFuncion(Long codigoFuncion, Long codigoProceso) {
+        ArrayList entidad = repositorio.spGetFlujoF(codigoFuncion, codigoProceso);
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }

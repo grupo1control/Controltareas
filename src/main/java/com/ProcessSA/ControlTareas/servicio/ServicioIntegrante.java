@@ -32,7 +32,7 @@ public class ServicioIntegrante {
     }
 
     /**
-     * Ingresa o actualiza un registro de Integrante
+     * Ingresa un registro de Integrante
      *
      * @param codigoUi
      * @param idUsuario

@@ -1,7 +1,9 @@
 package com.ProcessSA.ControlTareas.repositorio;
 
-
-import com.ProcessSA.ControlTareas.modelo.*;
+import com.ProcessSA.ControlTareas.modelo.Integrante;
+import com.ProcessSA.ControlTareas.modelo.IntegrantePK;
+import com.ProcessSA.ControlTareas.modelo.UnidadInterna;
+import com.ProcessSA.ControlTareas.modelo.Usuario;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -10,16 +12,17 @@ import javax.persistence.StoredProcedureQuery;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
 /*
  * Convensión Java Spring:
  *   public interface RepositorioIntegrante implements JpaRepository<[Clase], [tipoDatoID]>(){ }
  */
-
 /**
  * Clase para definir las operaciones de BD relacionadas con INTEGRANTE
  */
 @Repository
 public class RepositorioIntegrante {
+
     private final EntityManager gestorDeEntidad;
 
     public RepositorioIntegrante(EntityManager gestorDeEntidad) {

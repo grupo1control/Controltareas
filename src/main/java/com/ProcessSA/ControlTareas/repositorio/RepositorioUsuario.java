@@ -1,8 +1,9 @@
 package com.ProcessSA.ControlTareas.repositorio;
 
-import com.ProcessSA.ControlTareas.modelo.Usuario;
 import com.ProcessSA.ControlTareas.modelo.Persona;
+import com.ProcessSA.ControlTareas.modelo.Usuario;
 import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.StoredProcedureQuery;
@@ -97,6 +98,7 @@ public class RepositorioUsuario {
      * Ejecuta el procedimiento almacenado SP_GET_USUARIO,
      * para obtener los datos de un Usuario,
      * y devuelve un objeto ArrayList con los resultados obtenidos
+     *
      * @param id
      * @return
      */
@@ -114,7 +116,7 @@ public class RepositorioUsuario {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        List<?> usuario=obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_USUARIO"));
+        List<?> usuario = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_USUARIO"));
         // Encapsular resultado
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
@@ -134,7 +136,7 @@ public class RepositorioUsuario {
      * @param clave
      * @return
      */
-    public ArrayList spRegUsuario(String rut, String nombre, String correo, String clave ) {
+    public ArrayList spRegUsuario(String rut, String nombre, String correo, String clave) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_USUARIO");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_RUT", String.class, ParameterMode.IN);
@@ -154,7 +156,7 @@ public class RepositorioUsuario {
         // Obtener valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        Long codigoSalida = (Long) consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
+        Object codigoSalida = consultaProcedimiento.getOutputParameterValue("OUT_ID_SALIDA");
         // Encapsular resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
@@ -167,6 +169,7 @@ public class RepositorioUsuario {
      * Ejecuta el procedimiento almacenado SP_DEL_USUARIO,
      * para eliminar un registro de Usuario,
      * y retorna un objeto ArrayList con los resultados obtenidos
+     *
      * @param id
      * @return
      */
@@ -177,7 +180,7 @@ public class RepositorioUsuario {
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
-        consultaProcedimiento.setParameter("IN_ID",id);
+        consultaProcedimiento.setParameter("IN_ID", id);
         // Ejecutarprocedimiento
         consultaProcedimiento.execute();
         // Obtener valores de salida

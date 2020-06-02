@@ -155,7 +155,7 @@ BEGIN
         DELETE FROM ASIGNACION WHERE ID_USUARIO = IN_id_usuario AND  CODIGO_UI = IN_codigo_ui AND CODIGO_TAREA = in_codigo_tarea;
     ELSE
         OUT_ESTADO := -1;
-        OUT_GLOSA := 'ASIGNACION no registrado';
+        OUT_GLOSA := 'ASIGNACION no registrada';
     END IF;
 
 EXCEPTION
@@ -248,7 +248,6 @@ END SP_DEL_EMPRESA;
 /
 
 create or replace PROCEDURE "SP_DEL_FLUJO_F" (
-    IN_indice IN FLUJO_FUNCION.INDICE %TYPE,
     IN_codigo_funcion IN FLUJO_FUNCION.CODIGO_FUNCION%TYPE,
     IN_codigo_proceso IN FLUJO_FUNCION.CODIGO_PROCESO%TYPE,
     OUT_GLOSA OUT VARCHAR2,
@@ -272,10 +271,10 @@ BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_DEL_FLUJO_F ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE INDICE = IN_indice AND  CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_PROCESO = in_codigo_proceso;
+    SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_PROCESO = in_codigo_proceso;
 
     IF hay_registro = 1 THEN
-        DELETE FROM FLUJO_FUNCION WHERE INDICE = IN_indice AND  CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_PROCESO = in_codigo_proceso;
+        DELETE FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_PROCESO = in_codigo_proceso;
     ELSE
         OUT_ESTADO := -1;
         OUT_GLOSA := 'FLUJO_FUNCION no registrado';
@@ -290,7 +289,6 @@ END SP_DEL_FLUJO_F;
 /
 
 create or replace PROCEDURE "SP_DEL_FLUJO_T" (
-    IN_indice IN FLUJO_TAREA.INDICE %TYPE,
     IN_codigo_funcion IN FLUJO_TAREA.CODIGO_FUNCION%TYPE,
     IN_codigo_tarea IN FLUJO_TAREA.CODIGO_TAREA%TYPE,
     OUT_GLOSA OUT VARCHAR2,
@@ -314,10 +312,10 @@ BEGIN
     OUT_ESTADO := 0;
     OUT_GLOSA := 'SP_DEL_FLUJO_T ejecutado exitósamente 👍';
 
-    SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE INDICE = IN_indice AND  CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_TAREA = in_codigo_tarea;
+    SELECT COUNT(*) INTO hay_registro FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_TAREA = in_codigo_tarea;
 
     IF hay_registro = 1 THEN
-        DELETE FROM FLUJO_TAREA WHERE INDICE = IN_indice AND  CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_TAREA = in_codigo_tarea;
+        DELETE FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion AND CODIGO_TAREA = in_codigo_tarea;
     ELSE
         OUT_ESTADO := -1;
         OUT_GLOSA := 'FLUJO_TAREA no registrado';
@@ -724,7 +722,6 @@ BEGIN
         SELECT * FROM ADMINISTRADOR WHERE ID = IN_id;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
 
@@ -831,7 +828,6 @@ BEGIN
         SELECT * FROM ASIGNACION WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario AND CODIGO_TAREA = IN_codigo_tarea;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Asignación no registrada';
     END IF;
 
@@ -904,7 +900,6 @@ BEGIN
         SELECT * FROM CONTRATO WHERE RUT_PERSONA = IN_rut OR RUT_EMPRESA = IN_rut;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Rut sin contrato(s)';
     END IF;
 
@@ -977,7 +972,6 @@ BEGIN
         SELECT * FROM DISENNADOR WHERE ID = IN_id;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
 
@@ -1050,7 +1044,6 @@ BEGIN
         SELECT * FROM EMPRESA WHERE RUT = IN_RUT;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Rut no registrado';
     END IF;
 
@@ -1098,7 +1091,7 @@ create or replace PROCEDURE              "SP_GET_FLUJO_F" (
     IN_codigo_proceso IN FLUJO_FUNCION.CODIGO_PROCESO%TYPE,
     OUT_GLOSA OUT VARCHAR2,
     OUT_ESTADO OUT NUMBER,
-    OUT_FLUJO_T OUT SYS_REFCURSOR
+    OUT_FLUJO_F OUT SYS_REFCURSOR
 ) AS
 /**************************************************************************************************************
    NAME:       	SP_GET_FLUJO_F
@@ -1119,11 +1112,10 @@ BEGIN
 
     SELECT COUNT(*) INTO hay_registro FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
 
-    OPEN OUT_FLUJO_T FOR
+    OPEN OUT_FLUJO_F FOR
         SELECT * FROM FLUJO_FUNCION WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_PROCESO = IN_codigo_proceso;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Flujo no registrado';
     END IF;
 
@@ -1229,7 +1221,6 @@ BEGIN
         SELECT * FROM FLUJO_TAREA WHERE CODIGO_FUNCION = IN_codigo_funcion OR CODIGO_TAREA = IN_codigo_tarea;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Flujo no registrado';
     END IF;
 
@@ -1270,7 +1261,6 @@ BEGIN
         SELECT * FROM FUNCION WHERE CODIGO = IN_codigo;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
 
@@ -1311,7 +1301,6 @@ BEGIN
         SELECT * FROM FUNCIONARIO WHERE ID = IN_id;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
 
@@ -1385,7 +1374,6 @@ BEGIN
         SELECT * FROM INTEGRANTE WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Integración no registrado';
     END IF;
 
@@ -1458,7 +1446,6 @@ BEGIN
         SELECT * FROM PERSONA WHERE RUT = IN_RUT;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Rut no registrado';
     END IF;
 
@@ -1530,7 +1517,6 @@ BEGIN
         SELECT * FROM PLAZO WHERE CODIGO_TAREA = IN_codigo_tarea;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
 
@@ -1603,7 +1589,6 @@ BEGIN
         SELECT * FROM PROCESO WHERE CODIGO = IN_codigo;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
 
@@ -1676,7 +1661,6 @@ BEGIN
         SELECT * FROM PROYECTO WHERE CODIGO = IN_codigo;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
 
@@ -1749,7 +1733,6 @@ BEGIN
         SELECT * FROM TAREA WHERE CODIGO = IN_codigo;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
 
@@ -1822,7 +1805,6 @@ BEGIN
         SELECT * FROM UNIDAD_INTERNA WHERE CODIGO = IN_codigo;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Código no registrado';
     END IF;
 
@@ -1863,7 +1845,6 @@ BEGIN
         SELECT * FROM USUARIO WHERE ID = IN_id;
 
     IF hay_registro = 0 THEN
-        OUT_ESTADO := -1;
         OUT_GLOSA := 'Id no registrado';
     END IF;
 
@@ -2382,7 +2363,7 @@ BEGIN
     SELECT COUNT(*) INTO hay_registro FROM INTEGRANTE WHERE CODIGO_UI = in_codigo_ui AND ID_USUARIO = in_id_usuario;
 
     IF (hay_registro = 1) THEN
-        OUT_GLOSA := 'USUARIO / UNIDAD_INTERNA ya se están integrados';
+        OUT_GLOSA := 'USUARIO / UNIDAD_INTERNA ya están integrados';
     ELSE
         INSERT INTO INTEGRANTE (ID_USUARIO, CODIGO_UI)
         VALUES (in_id_usuario, in_codigo_ui);
@@ -2917,3 +2898,4 @@ EXCEPTION
 
 END SP_DEL_FUNCIONARIO;
 /
+

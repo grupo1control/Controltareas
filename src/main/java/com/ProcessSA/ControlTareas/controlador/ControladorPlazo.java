@@ -53,7 +53,7 @@ public class ControladorPlazo {
     })
     public ResponseEntity<?> eliminarPlazo(
             @PathVariable("codigoTarea") Long codigoTarea,
-            @PathVariable("contador") byte contador
+            @PathVariable("contador") Byte contador
     ) {
         return new ResponseEntity<>(this.servicio.eliminarPlazo(codigoTarea, contador), HttpStatus.OK);
     }
