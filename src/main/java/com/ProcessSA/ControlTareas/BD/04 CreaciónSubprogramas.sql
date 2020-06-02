@@ -1374,7 +1374,7 @@ BEGIN
         SELECT * FROM INTEGRANTE WHERE CODIGO_UI = IN_codigo_ui AND ID_USUARIO = IN_id_usuario;
 
     IF hay_registro = 0 THEN
-        OUT_GLOSA := 'Integración no registrado';
+        OUT_GLOSA := 'Integración no registrada';
     END IF;
 
 EXCEPTION
@@ -2365,8 +2365,8 @@ BEGIN
     IF (hay_registro = 1) THEN
         OUT_GLOSA := 'USUARIO / UNIDAD_INTERNA ya están integrados';
     ELSE
-        INSERT INTO INTEGRANTE (ID_USUARIO, CODIGO_UI)
-        VALUES (in_id_usuario, in_codigo_ui);
+        INSERT INTO INTEGRANTE (ID_USUARIO, CODIGO_UI, CREADO)
+        VALUES (in_id_usuario, in_codigo_ui, SYSDATE());
         OUT_GLOSA := OUT_GLOSA || ', se ha ingresado un nuevo registro';
     END IF;
 

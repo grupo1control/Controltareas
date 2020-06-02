@@ -149,7 +149,6 @@ create table FUNCIONARIO
 create table INTEGRANTE
 (
     CREADO DATE not null,
-    MODIFICADO DATE,
     ID_USUARIO NUMBER(19) not null
         constraint FK33AUO11RA5DNTQKIYI3R94POB
             references USUARIO,

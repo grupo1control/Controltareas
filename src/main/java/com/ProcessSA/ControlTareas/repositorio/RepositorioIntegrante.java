@@ -91,7 +91,6 @@ public class RepositorioIntegrante {
 
                 entidad.setPkIntegrante(pkEntidad);
                 entidad.setCreado(rs.getDate("creado"));
-                entidad.setModificado(rs.getDate("modificado"));
                 lista.add(entidad);
                 //System.out.println(entidad);
 
@@ -128,12 +127,12 @@ public class RepositorioIntegrante {
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        List<?> integrantes = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_INTEGRANTES"));
+        List<?> integrante = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_INTEGRANTE"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.addAll(integrantes);
+        respuesta.addAll(integrante);
         return respuesta;
     }
 

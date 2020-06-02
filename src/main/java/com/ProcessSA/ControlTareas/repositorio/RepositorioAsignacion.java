@@ -109,30 +109,35 @@ public class RepositorioAsignacion {
      * Ejecuta el procedimiento almacenado SP_GET_ASIGNACION,
      * para obtener datos de Asignacion,
      * y devuelve un objeto ArrayList con los resultados obtenidos
-     *
-     * @param id
+     * @param idUsuario
+     * @param codigoUi
+     * @param codigoTarea
      * @return
      */
-    public ArrayList spGetAsignacion(Long id) {
+    public ArrayList spGetAsignacion(Long idUsuario, Long codigoUi, Long codigoTarea) {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_GET_ASIGNACION");
         // Registrar los parámetros de entrada y salida
-        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_ID_USUARIO", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_UI", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_GLOSA", String.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ASIGNACION", void.class, ParameterMode.REF_CURSOR);
         // Asignar valor de entrada
-        consultaProcedimiento.setParameter("IN_CODIGO", id);
+        consultaProcedimiento.setParameter("IN_ID_USUARIO", idUsuario);
+        consultaProcedimiento.setParameter("IN_CODIGO_UI", codigoUi);
+        consultaProcedimiento.setParameter("IN_CODIGO_TAREA", codigoTarea);
         // Ejecutar procedimiento
         consultaProcedimiento.execute();
         // Obtener los valores de salida
         String glosa = (String) consultaProcedimiento.getOutputParameterValue("OUT_GLOSA");
         int estado = (int) consultaProcedimiento.getOutputParameterValue("OUT_ESTADO");
-        List<?> asignaciones = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_ASIGNACION"));
+        List<?> asignacion = obtener((ResultSet) consultaProcedimiento.getOutputParameterValue("OUT_ASIGNACION"));
         // Encapsular los los resultados
         ArrayList respuesta = new ArrayList<>();
         respuesta.add(glosa);
         respuesta.add(estado);
-        respuesta.addAll(asignaciones);
+        respuesta.addAll(asignacion);
         return respuesta;
     }
 
@@ -187,7 +192,7 @@ public class RepositorioAsignacion {
         StoredProcedureQuery consultaProcedimiento = gestorDeEntidad.createStoredProcedureQuery("SP_REG_ASIGNACION");
         // Registrar los parámetros de entrada y salida
         consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_TAREA", Long.class, ParameterMode.IN);
-        consultaProcedimiento.registerStoredProcedureParameter("IN_COSIGO_UI", Long.class, ParameterMode.IN);
+        consultaProcedimiento.registerStoredProcedureParameter("IN_CODIGO_UI", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_ID_USUARIO", Long.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_ROL", String.class, ParameterMode.IN);
         consultaProcedimiento.registerStoredProcedureParameter("IN_ESTADO", String.class, ParameterMode.IN);
@@ -196,7 +201,7 @@ public class RepositorioAsignacion {
         consultaProcedimiento.registerStoredProcedureParameter("OUT_ESTADO", int.class, ParameterMode.OUT);
         // Asignar valores de entrada
         consultaProcedimiento.setParameter("IN_CODIGO_TAREA", codigoTarea);
-        consultaProcedimiento.setParameter("IN_COSIGO_UI", codigoUi);
+        consultaProcedimiento.setParameter("IN_CODIGO_UI", codigoUi);
         consultaProcedimiento.setParameter("IN_ID_USUARIO", idUsuario);
         consultaProcedimiento.setParameter("IN_ROL", rol);
         consultaProcedimiento.setParameter("IN_ESTADO", inputEstado);

@@ -43,24 +43,23 @@ public class ControladorIntegrante {
         return new ResponseEntity<>(this.servicio.registroIntegrante(codigoUi, idUsuario), HttpStatus.CREATED);
     }
 
-
-    @GetMapping("/{id}")
+    @GetMapping("/{UI}-{usuario}")
     @ApiOperation(value = "Obtener un Integrante", notes = "Servicio para obtener datos de un Integrante")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Integrante encontrado correctamente"),
             @ApiResponse(code = 404, message = "Integrante no encontrada")
     })
-    public ResponseEntity<?> obtenerIntegrante(@PathVariable("id") Long codigoUi, Long idUsuario) {
+    public ResponseEntity<?> obtenerIntegrante(@PathVariable("UI") Long codigoUi,@PathVariable("usuario") Long idUsuario) {
         return ResponseEntity.ok(this.servicio.obtenerIntegrante(codigoUi, idUsuario));
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminar/{UI}-{usuario}")
     @ApiOperation(value = "Eliminar Integrante", notes = "Servicio para eliminar un Integrante")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Integrante eliminado correctamente"),
             @ApiResponse(code = 404, message = "Integrante no encontrado")
     })
-    public ResponseEntity<?> eliminarIntegrante(@PathVariable("id") Long codigoUi, Long idUsuario) {
+    public ResponseEntity<?> eliminarIntegrante(@PathVariable("UI") Long codigoUi, @PathVariable("usuario") Long idUsuario) {
         return new ResponseEntity<>(this.servicio.eliminarIntegrante(codigoUi, idUsuario), HttpStatus.OK);
     }
 

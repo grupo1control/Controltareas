@@ -40,28 +40,28 @@ public class ServicioAsignacion {
      * @param codigoUi
      * @param idUsuario
      * @param rol
-     * @param inputstado
+     * @param estado
      * @param nota
      * @return
      */
     @Transactional
-    public ArrayList registroAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String inputstado, String nota) {
-        ArrayList registro = repositorio.spRegAsignacion(codigoTarea, codigoUi, idUsuario, rol, inputstado, nota);
+    public ArrayList registroAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String estado, String nota) {
+        ArrayList registro = repositorio.spRegAsignacion(codigoTarea, codigoUi, idUsuario, rol, estado, nota);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
         return registro;
     }
-
 
     /**
      * Obtiene un registro de un Asignacion
      *
-     * @param id
+     * @param idUsuario
+     * @param codigoUI
+     * @param codigoTarea
      * @return
      */
-    public ArrayList obtenerAsignacion(long id) {
-        ArrayList entidad = repositorio.spGetAsignacion(id);
+    public ArrayList obtenerAsignacion(Long idUsuario, Long codigoUI, Long codigoTarea) {
+        ArrayList entidad = repositorio.spGetAsignacion(idUsuario, codigoUI, codigoTarea);
         System.out.println("Resultado: \n" + entidad);
         return entidad;
     }

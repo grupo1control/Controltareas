@@ -43,7 +43,6 @@ public class ServicioIntegrante {
         ArrayList registro = repositorio.spRegIntegrante(codigoUi, idUsuario);
         System.out.println("Glosa de respuesta: " + registro.get(0));
         System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
         return registro;
     }
 

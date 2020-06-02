@@ -40,29 +40,52 @@ public class ControladorAsignacion {
             @ApiResponse(code = 201, message = "Asignacion creada correctamente"),
             @ApiResponse(code = 400, message = "Solicitud inválida")
     })
-    public ResponseEntity<?> ingresarAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String inputstado, String nota) {
-        return new ResponseEntity<>(this.servicio.registroAsignacion(codigoTarea, codigoUi, idUsuario, rol, inputstado, nota), HttpStatus.CREATED);
+    public ResponseEntity<?> ingresarAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String estado, String nota) {
+        return new ResponseEntity<>(this.servicio.registroAsignacion(codigoTarea, codigoUi, idUsuario, rol, estado, nota), HttpStatus.CREATED);
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/{usuario}-{UI}-{tarea}")
     @ApiOperation(value = "Obtener un Asignacion", notes = "Servicio para obtener datos de una Asignacion")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Asignacion encontrada correctamente"),
             @ApiResponse(code = 404, message = "Asignacion no encontrada")
     })
-    public ResponseEntity<?> obtenerAsignacion(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(this.servicio.obtenerAsignacion(id));
+    public ResponseEntity<?> obtenerAsignacion(
+            @PathVariable("usuario") Long idUsuario,
+            @PathVariable("UI") Long codigoUI,
+            @PathVariable("tarea") Long codigoTarea
+    ) {
+        return ResponseEntity.ok(this.servicio.obtenerAsignacion(idUsuario, codigoUI, codigoTarea));
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminar/{usuario}-{UI}-{tarea}")
     @ApiOperation(value = "Eliminar Administrador", notes = "Servicio para eliminar un Administrador")
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Administrador eliminado correctamente"),
             @ApiResponse(code = 404, message = "Administrador no encontrado")
     })
-    public ResponseEntity<?> eliminarAsignacion(@PathVariable("id") Long idUsuario, Long codigoUi, Long codigoTarea) {
-        return new ResponseEntity<>(this.servicio.eliminarAsignacion(idUsuario, codigoUi, codigoTarea), HttpStatus.OK);
+    public ResponseEntity<?> eliminarAsignacion(
+            @PathVariable("usuario") Long idUsuario,
+            @PathVariable("UI") Long codigoUI,
+            @PathVariable("tarea") Long codigoTarea
+    ) {
+        return new ResponseEntity<>(this.servicio.eliminarAsignacion(idUsuario, codigoUI, codigoTarea), HttpStatus.OK);
+    }
+
+    @PutMapping("/actualizar/{usuario}-{UI}-{tarea}")
+    @ApiOperation(value = "Actualizar Asignacion", notes = "Servicio para actualizar una Asignacion")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Asignación actualizada correctamente"),
+            @ApiResponse(code = 400, message = "Solicitud inválida")
+    })
+    public ResponseEntity<?> actualizarAsignacion(
+            @PathVariable("usuario") Long idUsuario,
+            @PathVariable("UI") Long codigoUI,
+            @PathVariable("tarea") Long codigoTarea,
+            String rol, String estado, String nota
+    ) {
+        return new ResponseEntity<>(this.servicio.registroAsignacion(codigoTarea, codigoUI, idUsuario, rol, estado, nota), HttpStatus.OK);
     }
 
 }
