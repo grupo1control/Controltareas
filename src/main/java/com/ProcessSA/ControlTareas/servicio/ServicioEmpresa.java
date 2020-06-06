@@ -23,10 +23,7 @@ public class ServicioEmpresa {
      * @return
      */
     public ArrayList obtenerEmpresas() {
-        ArrayList lista = repositorio.spGetEmpresas();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetEmpresas();
     }
 
 
@@ -41,11 +38,7 @@ public class ServicioEmpresa {
      */
     @Transactional
     public ArrayList registroEmpresa(String rut, String nombre, String razonSocial, String giroComercial) {
-        ArrayList registro = repositorio.spRegEmpresa(rut, nombre, razonSocial, giroComercial);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegEmpresa(rut, nombre, razonSocial, giroComercial);
     }
 
     /**
@@ -54,12 +47,9 @@ public class ServicioEmpresa {
      * @param rut
      * @return
      */
-    @Transactional
+    @Transactional//(propagation = Propagation.REQUIRED, timeout = 30, rollbackFor = errorGenerico.class)
     public ArrayList eliminarEmpresa(String rut) {
-        ArrayList retiro = repositorio.spDelEmpresa(rut);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelEmpresa(rut);
     }
 
     /**
@@ -69,9 +59,7 @@ public class ServicioEmpresa {
      * @return
      */
     public ArrayList obtenerEmpresa(String rut) {
-        ArrayList entidad = repositorio.spGetEmpresa(rut);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetEmpresa(rut);
     }
 
 }

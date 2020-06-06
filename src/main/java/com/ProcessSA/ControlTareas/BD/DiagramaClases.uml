@@ -3,207 +3,207 @@
   <ID>Persistence</ID>
   <OriginalElement>JavaeeElement:/a7c1d445/entityManagerFactory/ControlTareas/jpa/JPA/PersistenceModel</OriginalElement>
   <nodes>
-    <node x="384.0" y="1054.0">ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java</node>
-    <node x="496.0" y="494.0">IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java</node>
-    <node x="1295.0" y="522.0">FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java</node>
-    <node x="495.0" y="242.0">Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java</node>
-    <node x="1092.0" y="678.0">Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java</node>
-    <node x="-4.0" y="1762.0">AbstractAuditable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class</node>
-    <node x="816.0" y="254.0">AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java</node>
-    <node x="273.0" y="1774.0">null#null</node>
-    <node x="384.0" y="733.0">Disennador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Disennador.java</node>
-    <node x="692.0" y="449.0">UnidadInterna#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/UnidadInterna.java</node>
-    <node x="692.0" y="667.0">Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java</node>
-    <node x="815.5" y="-31.0">Asignacion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Asignacion.java</node>
-    <node x="375.0" y="1449.0">Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java</node>
-    <node x="175.0" y="438.0">Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java</node>
-    <node x="1547.0" y="242.0">Plazo#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Plazo.java</node>
-    <node x="888.0" y="733.0">FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java</node>
-    <node x="-28.0" y="1493.0">Administrador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Administrador.java</node>
-    <node x="1292.0" y="198.0">Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java</node>
-    <node x="365.0" y="1198.0">Empresa#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Empresa.java</node>
-    <node x="180.0" y="173.0">Funcionario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcionario.java</node>
-    <node x="895.0" y="922.0">FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java</node>
-    <node x="175.5" y="758.0">Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java</node>
-    <node x="1542.5" y="453.0">PlazoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/PlazoPK.java</node>
-    <node x="1096.0" y="533.0">FlujoTareaPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTareaPK.java</node>
-    <node x="175.0" y="1009.0">Contrato#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Contrato.java</node>
-    <node x="-12.0" y="1653.0">AbstractPersistable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class</node>
+    <node x="624.0" y="574.0">ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java</node>
+    <node x="936.0" y="774.0">IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java</node>
+    <node x="375.0" y="1522.0">FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java</node>
+    <node x="1144.0" y="773.0">Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java</node>
+    <node x="172.0" y="1278.0">Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java</node>
+    <node x="1676.0" y="82.0">AbstractAuditable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class</node>
+    <node x="1136.0" y="1014.0">AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java</node>
+    <node x="1953.0" y="94.0">null#null</node>
+    <node x="1144.0" y="-27.0">Disennador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Disennador.java</node>
+    <node x="932.0" y="889.0">UnidadInterna#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/UnidadInterna.java</node>
+    <node x="172.0" y="867.0">Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java</node>
+    <node x="1335.5" y="969.0">Asignacion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Asignacion.java</node>
+    <node x="415.0" y="49.0">Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java</node>
+    <node x="1135.0" y="518.0">Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java</node>
+    <node x="1467.0" y="1522.0">Plazo#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Plazo.java</node>
+    <node x="168.0" y="1133.0">FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java</node>
+    <node x="612.0" y="93.0">Administrador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Administrador.java</node>
+    <node x="1132.0" y="1478.0">Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java</node>
+    <node x="405.0" y="278.0">Empresa#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Empresa.java</node>
+    <node x="1340.0" y="573.0">Funcionario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcionario.java</node>
+    <node x="-25.0" y="1122.0">FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java</node>
+    <node x="815.5" y="518.0">Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java</node>
+    <node x="1462.5" y="1733.0">PlazoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/PlazoPK.java</node>
+    <node x="376.0" y="1333.0">FlujoTareaPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTareaPK.java</node>
+    <node x="615.0" y="289.0">Contrato#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Contrato.java</node>
+    <node x="1668.0" y="-27.0">AbstractPersistable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class</node>
   </nodes>
   <notes />
   <edges>
     <edge source="FlujoTareaPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTareaPK.java" target="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java">
-      <point x="0.0" y="-27.0" />
-      <point x="1160.0" y="320.0" />
-      <point x="-68.0" y="40.0" />
+      <point x="64.0" y="0.0" />
+      <point x="1160.0" y="1360.0" />
+      <point x="-40.0" y="-82.0" />
     </edge>
     <edge source="Contrato#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Contrato.java" target="ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java">
-      <point x="65.0" y="0.0" />
-      <point x="-56.0" y="0.0" />
+      <point x="0.0" y="71.0" />
+      <point x="0.0" y="-26.0" />
     </edge>
     <edge source="PlazoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/PlazoPK.java" target="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java">
       <point x="-57.5" y="0.0" />
-      <point x="1400.0" y="480.0" />
-      <point x="40.0" y="82.0" />
+      <point x="1200.0" y="1760.0" />
+      <point x="0.0" y="82.0" />
     </edge>
     <edge source="FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java" target="Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java">
-      <point x="72.0" y="0.0" />
-      <point x="-68.0" y="0.0" />
+      <point x="0.0" y="27.0" />
+      <point x="0.0" y="-82.0" />
     </edge>
     <edge source="ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java" target="Empresa#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Empresa.java">
-      <point x="0.0" y="26.0" />
-      <point x="0.0" y="-82.0" />
+      <point x="-56.0" y="0.0" />
+      <point x="480.0" y="600.0" />
+      <point x="0.0" y="82.0" />
     </edge>
     <edge source="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java" target="FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java">
-      <point x="0.0" y="82.0" />
-      <point x="0.0" y="-38.0" />
+      <point x="-68.0" y="0.0" />
+      <point x="65.0" y="0.0" />
     </edge>
     <edge source="Disennador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Disennador.java" target="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java">
-      <point x="56.0" y="0.0" />
-      <point x="-68.0" y="0.0" />
+      <point x="-56.0" y="0.0" />
+      <point x="240.0" y="0.0" />
+      <point x="0.0" y="-93.0" />
     </edge>
     <edge source="Administrador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Administrador.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
-      <point x="0.0" y="-27.0" />
-      <point x="40.0" y="520.0" />
-      <point x="-65.0" y="0.0" />
+      <point x="68.0" y="0.0" />
+      <point x="1160.0" y="120.0" />
+      <point x="-40.0" y="-82.0" />
     </edge>
     <edge source="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java" target="Asignacion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Asignacion.java">
-      <point x="0.0" y="-82.0" />
-      <point x="1360.0" y="40.0" />
-      <point x="64.5" y="0.0" />
+      <point x="68.0" y="-40.0" />
+      <point x="1400.0" y="1520.0" />
+      <point x="0.0" y="71.0" />
     </edge>
     <edge source="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java" target="UnidadInterna#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/UnidadInterna.java">
-      <point x="0.0" y="-93.0" />
-      <point x="0.0" y="71.0" />
+      <point x="68.0" y="0.0" />
+      <point x="-68.0" y="0.0" />
     </edge>
     <edge source="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java" target="Plazo#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Plazo.java">
       <point x="68.0" y="0.0" />
       <point x="-53.0" y="0.0" />
     </edge>
     <edge source="Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java" target="Asignacion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Asignacion.java">
-      <point x="0.0" y="-38.0" />
-      <point x="560.0" y="40.0" />
-      <point x="-64.5" y="0.0" />
+      <point x="56.0" y="0.0" />
+      <point x="1400.0" y="800.0" />
+      <point x="0.0" y="-71.0" />
     </edge>
     <edge source="Disennador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Disennador.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
-      <point x="0.0" y="-27.0" />
-      <point x="440.0" y="560.0" />
-      <point x="65.0" y="40.0" />
-    </edge>
-    <edge source="ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java" target="Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java">
-      <point x="0.0" y="-26.0" />
-      <point x="440.0" y="840.0" />
-      <point x="64.5" y="0.0" />
-    </edge>
-    <edge source="FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java" target="FlujoTareaPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTareaPK.java">
-      <point x="-65.0" y="0.0" />
-      <point x="64.0" y="0.0" />
-    </edge>
-    <edge source="Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java" target="FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java">
-      <point x="0.0" y="82.0" />
-      <point x="1160.0" y="960.0" />
-      <point x="65.0" y="0.0" />
-    </edge>
-    <edge source="IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
-      <point x="-64.0" y="0.0" />
-      <point x="65.0" y="0.0" />
-    </edge>
-    <edge source="Funcionario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcionario.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
       <point x="0.0" y="27.0" />
       <point x="0.0" y="-82.0" />
     </edge>
-    <edge source="AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java" target="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java">
-      <point x="64.0" y="0.0" />
-      <point x="-68.0" y="0.0" />
+    <edge source="ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java" target="Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java">
+      <point x="56.0" y="0.0" />
+      <point x="-64.5" y="0.0" />
     </edge>
-    <edge source="Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java" target="Contrato#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Contrato.java">
-      <point x="0.0" y="82.0" />
-      <point x="0.0" y="-71.0" />
-    </edge>
-    <edge source="FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java" target="FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java">
+    <edge source="FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java" target="FlujoTareaPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTareaPK.java">
       <point x="0.0" y="-38.0" />
       <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java" target="FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java">
+      <point x="-68.0" y="0.0" />
+      <point x="40.0" y="1360.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
+      <point x="0.0" y="-26.0" />
+      <point x="1000.0" y="640.0" />
+      <point x="-65.0" y="40.0" />
+    </edge>
+    <edge source="Funcionario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcionario.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
+      <point x="-60.0" y="0.0" />
+      <point x="65.0" y="0.0" />
+    </edge>
+    <edge source="AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java" target="Tarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Tarea.java">
+      <point x="0.0" y="26.0" />
+      <point x="0.0" y="-82.0" />
+    </edge>
+    <edge source="Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java" target="Contrato#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Contrato.java">
+      <point x="0.0" y="-82.0" />
+      <point x="880.0" y="360.0" />
+      <point x="65.0" y="0.0" />
     </edge>
     <edge source="AbstractAuditable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class" target="AbstractPersistable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractPersistable.class">
       <point x="0.0" y="-38.0" />
       <point x="0.0" y="27.0" />
     </edge>
+    <edge source="FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java" target="FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java">
+      <point x="65.0" y="0.0" />
+      <point x="-72.0" y="0.0" />
+    </edge>
+    <edge source="IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java" target="UnidadInterna#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/UnidadInterna.java">
+      <point x="0.0" y="26.0" />
+      <point x="0.0" y="-71.0" />
+    </edge>
+    <edge source="Empresa#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Empresa.java" target="Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java">
+      <point x="0.0" y="-82.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java" target="FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java">
+      <point x="-68.0" y="0.0" />
+      <point x="40.0" y="960.0" />
+      <point x="0.0" y="-38.0" />
+    </edge>
     <edge source="AbstractAuditable#jar://C:/Users/DG0/.m2/repository/org/springframework/data/spring-data-jpa/2.3.0.RELEASE/spring-data-jpa-2.3.0.RELEASE.jar!/org/springframework/data/jpa/domain/AbstractAuditable.class" target="null#null">
       <point x="84.0" y="0.0" />
       <point x="-7.0" y="0.0" />
     </edge>
-    <edge source="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java" target="FlujoFuncion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncion.java">
-      <point x="0.0" y="93.0" />
-      <point x="760.0" y="960.0" />
-      <point x="-65.0" y="0.0" />
-    </edge>
-    <edge source="IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java" target="UnidadInterna#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/UnidadInterna.java">
-      <point x="64.0" y="0.0" />
-      <point x="-68.0" y="0.0" />
-    </edge>
-    <edge source="Empresa#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Empresa.java" target="Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java">
-      <point x="0.0" y="82.0" />
-      <point x="0.0" y="-71.0" />
+    <edge source="AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java" target="Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java">
+      <point x="0.0" y="-26.0" />
+      <point x="0.0" y="27.0" />
     </edge>
     <edge source="Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java" target="IntegrantePK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/IntegrantePK.java">
-      <point x="0.0" y="38.0" />
-      <point x="0.0" y="-26.0" />
-    </edge>
-    <edge source="AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java" target="Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java">
-      <point x="-64.0" y="0.0" />
-      <point x="65.0" y="0.0" />
+      <point x="-56.0" y="0.0" />
+      <point x="64.0" y="0.0" />
     </edge>
     <edge source="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java" target="Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java">
-      <point x="40.0" y="-82.0" />
-      <point x="280.0" y="280.0" />
-      <point x="-65.0" y="0.0" />
+      <point x="0.0" y="82.0" />
+      <point x="0.0" y="-27.0" />
     </edge>
     <edge source="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java" target="Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java">
-      <point x="-40.0" y="93.0" />
-      <point x="720.0" y="1520.0" />
-      <point x="65.0" y="0.0" />
-    </edge>
-    <edge source="Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
-      <point x="0.0" y="-82.0" />
-      <point x="0.0" y="82.0" />
-    </edge>
-    <edge source="Administrador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Administrador.java" target="Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java">
-      <point x="68.0" y="0.0" />
+      <point x="40.0" y="-93.0" />
+      <point x="280.0" y="120.0" />
       <point x="-65.0" y="0.0" />
     </edge>
-    <edge source="Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java" target="FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java">
-      <point x="68.0" y="0.0" />
-      <point x="1360.0" y="760.0" />
-      <point x="0.0" y="38.0" />
+    <edge source="Persona#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Persona.java" target="Usuario#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Usuario.java">
+      <point x="64.5" y="0.0" />
+      <point x="-65.0" y="0.0" />
+    </edge>
+    <edge source="Administrador#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Administrador.java" target="Proyecto#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proyecto.java">
+      <point x="-68.0" y="0.0" />
+      <point x="65.0" y="0.0" />
     </edge>
     <edge source="Asignacion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Asignacion.java" target="AsignacionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/AsignacionPK.java">
-      <point x="0.0" y="71.0" />
-      <point x="0.0" y="-26.0" />
+      <point x="-64.5" y="0.0" />
+      <point x="64.0" y="0.0" />
+    </edge>
+    <edge source="Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java" target="FlujoTarea#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTarea.java">
+      <point x="0.0" y="82.0" />
+      <point x="240.0" y="1560.0" />
+      <point x="-65.0" y="0.0" />
     </edge>
     <edge source="Plazo#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Plazo.java" target="PlazoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/PlazoPK.java">
       <point x="0.0" y="38.0" />
       <point x="0.0" y="-27.0" />
     </edge>
     <edge source="Empresa#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Empresa.java" target="Contrato#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Contrato.java">
-      <point x="-75.0" y="0.0" />
-      <point x="240.0" y="1280.0" />
-      <point x="0.0" y="71.0" />
+      <point x="75.0" y="0.0" />
+      <point x="-65.0" y="0.0" />
     </edge>
     <edge source="UnidadInterna#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/UnidadInterna.java" target="Integrante#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Integrante.java">
-      <point x="0.0" y="-71.0" />
-      <point x="760.0" y="300.0" />
-      <point x="65.0" y="20.0" />
+      <point x="68.0" y="0.0" />
+      <point x="1160.0" y="960.0" />
+      <point x="-40.0" y="27.0" />
     </edge>
     <edge source="FlujoTareaPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoTareaPK.java" target="Funcion#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Funcion.java">
-      <point x="0.0" y="27.0" />
-      <point x="0.0" y="-82.0" />
-    </edge>
-    <edge source="FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java" target="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java">
-      <point x="-72.0" y="0.0" />
+      <point x="-64.0" y="0.0" />
       <point x="68.0" y="0.0" />
     </edge>
+    <edge source="FlujoFuncionPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/FlujoFuncionPK.java" target="Proceso#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/Proceso.java">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
   </edges>
-  <settings layout="Orthogonal" zoom="1.0" x="973.5" y="817.5" />
+  <settings layout="Orthogonal" zoom="1.0" x="814.9999999999998" y="903.5" />
   <SelectedNodes>
     <node>ContratoPK#file://C:/Users/DG0/PFT8461/misJavaApps/Git/ControlTareas/src/main/java/com/ProcessSA/ControlTareas/modelo/ContratoPK.java</node>
   </SelectedNodes>
