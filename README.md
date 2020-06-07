@@ -19,12 +19,15 @@ Procedimiento para arrancar la aplicacion
 * Despues de correr la aplicacion y en caso de error por conflicto de ejecuccion  puerto 8080 realizar los siguientes comandos por consola CMD 
 
 	-netstat -ao | find "8080"
+	
 	-ctrl+c
+	
 	-Taskkill /PID  nroTarea /F
 	
 	O tambien
 	
 	-netstat -ano | findstr :8080
+	
 	-tskill nroTarea
 
 - Con esto ya realizado, volver a correr la base de datos con "StartDatabase" de oracle
