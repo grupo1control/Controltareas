@@ -3,7 +3,9 @@
 Prerequisitos
 
 -Base de datos Oracle 11g o superior
+
 -IDE (Neatbeans, IntelliJ o similares)
+
 -Maben
 
 Procedimiento para arrancar la aplicacion
