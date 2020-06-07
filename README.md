@@ -30,5 +30,4 @@ Procedimiento para arrancar la aplicacion
 	
 	-tskill nroTarea
 
-- Con esto ya realizado, volver a correr la base de datos con "StartDatabase" de oracle
-- Una vez realizado esto correr nuevamente la aplicacion
+- Con esto ya realizado, volver a correr la base de datos con "StartDatabase" de oracle y correr la aplicacion nuevamente
