@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioUnidadInterna;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 
 /**
@@ -14,7 +15,9 @@ public class ServicioUnidadInterna {
 
     public final RepositorioUnidadInterna repositorio;
 
-    public ServicioUnidadInterna(RepositorioUnidadInterna repositorio) { this.repositorio = repositorio; }
+    public ServicioUnidadInterna(RepositorioUnidadInterna repositorio) {
+        this.repositorio = repositorio;
+    }
 
     /**
      * Obtiene una lista de las Unidades Internas
@@ -22,10 +25,7 @@ public class ServicioUnidadInterna {
      * @return
      */
     public ArrayList obtenerUnidadesInternas() {
-        ArrayList lista = repositorio.spGetAllUi();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetAllUi();
     }
 
     /**
@@ -38,11 +38,8 @@ public class ServicioUnidadInterna {
      */
     @Transactional
     public ArrayList registroUnidadInterna(Long codigo, String nombre, String descripcion) {
-        ArrayList registro = repositorio.spRegUi(codigo, nombre, descripcion);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegUi(codigo, nombre, descripcion);
+
     }
 
     /**
@@ -53,10 +50,8 @@ public class ServicioUnidadInterna {
      */
     @Transactional
     public ArrayList eliminarUnidadInterna(Long codigo) {
-        ArrayList retiro = repositorio.spDelUi(codigo);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelUi(codigo);
+
     }
 
     /**
@@ -66,8 +61,7 @@ public class ServicioUnidadInterna {
      * @return
      */
     public ArrayList obtenerUnidadInterna(Long codigo) {
-        ArrayList entidad = repositorio.spGetUi(codigo);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetUi(codigo);
+
     }
 }

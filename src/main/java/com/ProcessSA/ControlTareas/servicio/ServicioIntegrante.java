@@ -1,6 +1,5 @@
 package com.ProcessSA.ControlTareas.servicio;
 
-
 import com.ProcessSA.ControlTareas.repositorio.RepositorioIntegrante;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +24,7 @@ public class ServicioIntegrante {
      * @return
      */
     public ArrayList obtenerIntegrantes() {
-        ArrayList lista = repositorio.spGetIntegrantes();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetIntegrantes();
     }
 
     /**
@@ -40,10 +36,7 @@ public class ServicioIntegrante {
      */
     @Transactional
     public ArrayList registroIntegrante(Long codigoUi, Long idUsuario) {
-        ArrayList registro = repositorio.spRegIntegrante(codigoUi, idUsuario);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        return registro;
+        return repositorio.spRegIntegrante(codigoUi, idUsuario);
     }
 
 
@@ -55,9 +48,7 @@ public class ServicioIntegrante {
      * @return
      */
     public ArrayList obtenerIntegrante(Long codigoUi, Long idUsuario) {
-        ArrayList entidad = repositorio.spGetIntegrante(codigoUi, idUsuario);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetIntegrante(codigoUi, idUsuario);
     }
 
     /**
@@ -69,9 +60,6 @@ public class ServicioIntegrante {
      */
     @Transactional
     public ArrayList eliminarIntegrante(Long codigoUi, Long idUsuario) {
-        ArrayList retiro = repositorio.spDelIntegrante(codigoUi, idUsuario);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelIntegrante(codigoUi, idUsuario);
     }
 }

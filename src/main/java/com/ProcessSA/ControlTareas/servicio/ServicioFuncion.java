@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioFuncion;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 
 /**
@@ -14,7 +15,9 @@ public class ServicioFuncion {
 
     public final RepositorioFuncion repositorio;
 
-    public ServicioFuncion(RepositorioFuncion repositorio) { this.repositorio = repositorio; }
+    public ServicioFuncion(RepositorioFuncion repositorio) {
+        this.repositorio = repositorio;
+    }
 
     /**
      * Obtiene una lista de todas las Funciones
@@ -22,10 +25,7 @@ public class ServicioFuncion {
      * @return
      */
     public ArrayList obtenerFunciones() {
-        ArrayList lista = repositorio.spGetFunciones();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetFunciones();
     }
 
     /**
@@ -39,11 +39,7 @@ public class ServicioFuncion {
      */
     @Transactional
     public ArrayList registroFuncion(Long codigo, String nombre, String descripcion, String estado) {
-        ArrayList registro = repositorio.spRegFuncion(codigo, nombre, descripcion, estado);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegFuncion(codigo, nombre, descripcion, estado);
     }
 
     /**
@@ -54,10 +50,7 @@ public class ServicioFuncion {
      */
     @Transactional
     public ArrayList eliminarFuncion(Long codigo) {
-        ArrayList retiro = repositorio.spDelFuncion(codigo);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelFuncion(codigo);
     }
 
     /**
@@ -67,9 +60,7 @@ public class ServicioFuncion {
      * @return
      */
     public ArrayList obtenerFuncion(Long codigo) {
-        ArrayList entidad = repositorio.spGetFuncion(codigo);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetFuncion(codigo);
     }
 
 }

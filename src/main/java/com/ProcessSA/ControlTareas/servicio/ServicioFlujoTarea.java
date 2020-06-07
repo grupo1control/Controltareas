@@ -14,7 +14,9 @@ public class ServicioFlujoTarea {
 
     private final RepositorioFlujoTarea repositorio;
 
-    public ServicioFlujoTarea(RepositorioFlujoTarea repositorio){ this.repositorio = repositorio; }
+    public ServicioFlujoTarea(RepositorioFlujoTarea repositorio) {
+        this.repositorio = repositorio;
+    }
 
     /**
      * Obtiene una lista de todas las FlujosTareas
@@ -22,10 +24,7 @@ public class ServicioFlujoTarea {
      * @return
      */
     public ArrayList obtenerFlujosTareas() {
-        ArrayList lista = repositorio.spGetFlujosT();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetFlujosT();
     }
 
     /**
@@ -35,14 +34,10 @@ public class ServicioFlujoTarea {
      * @param codigoTarea
      * @param codigoFuncion
      * @return
-             */
+     */
     @Transactional
     public ArrayList registroFlujoTarea(Byte indice, Long codigoTarea, Long codigoFuncion) {
-        ArrayList registro = repositorio.spRegFlujoT(indice, codigoTarea, codigoFuncion);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegFlujoT(indice, codigoTarea, codigoFuncion);
     }
 
     /**
@@ -54,22 +49,18 @@ public class ServicioFlujoTarea {
      */
     @Transactional
     public ArrayList eliminarFlujoTarea(Long codigoTarea, Long codigoFuncion) {
-        ArrayList retiro = repositorio.spDelFlujoT(codigoTarea, codigoFuncion);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelFlujoT(codigoTarea, codigoFuncion);
     }
 
     /**
      * Obtiene los registros de FlujoTarea con los parametros indicados
+     *
      * @param codigoTarea
      * @param codigoFuncion
      * @return
      */
     public ArrayList obtenerFlujoTarea(Long codigoTarea, Long codigoFuncion) {
-        ArrayList entidad = repositorio.spGetFlujoT(codigoTarea, codigoFuncion);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetFlujoT(codigoTarea, codigoFuncion);
     }
 
 }

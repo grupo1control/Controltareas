@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioPlazo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -15,7 +16,9 @@ public class ServicioPlazo {
 
     public final RepositorioPlazo repositorio;
 
-    public ServicioPlazo(RepositorioPlazo repositorio) { this.repositorio = repositorio; }
+    public ServicioPlazo(RepositorioPlazo repositorio) {
+        this.repositorio = repositorio;
+    }
 
     /**
      * Obtiene una lista de todos los Plazos
@@ -23,10 +26,8 @@ public class ServicioPlazo {
      * @return
      */
     public ArrayList obtenerPlazos() {
-        ArrayList lista = repositorio.spGetPlazos();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetPlazos();
+
     }
 
     /**
@@ -38,11 +39,8 @@ public class ServicioPlazo {
      */
     @Transactional
     public ArrayList registroPlazo(Date fecha, Long codigoTarea) {
-        ArrayList registro = repositorio.spRegPlazo(fecha, codigoTarea);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegPlazo(fecha, codigoTarea);
+
     }
 
     /**
@@ -54,10 +52,8 @@ public class ServicioPlazo {
      */
     @Transactional
     public ArrayList eliminarPlazo(Long codigoTarea, Byte contador) {
-        ArrayList retiro = repositorio.spDelPlazo(codigoTarea, contador);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelPlazo(codigoTarea, contador);
+
     }
 
     /**
@@ -67,9 +63,8 @@ public class ServicioPlazo {
      * @return
      */
     public ArrayList obtenerPlazo(Long codigoTarea) {
-        ArrayList entidad = repositorio.spGetPlazo(codigoTarea);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetPlazo(codigoTarea);
+
     }
 
 }

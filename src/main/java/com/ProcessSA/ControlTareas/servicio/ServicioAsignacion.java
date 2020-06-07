@@ -27,10 +27,7 @@ public class ServicioAsignacion {
      * @return
      */
     public ArrayList obtenerAsignaciones() {
-        ArrayList lista = repositorio.spGetAsignaciones();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetAsignaciones();
     }
 
     /**
@@ -46,10 +43,7 @@ public class ServicioAsignacion {
      */
     @Transactional
     public ArrayList registroAsignacion(Long codigoTarea, Long codigoUi, Long idUsuario, String rol, String estado, String nota) {
-        ArrayList registro = repositorio.spRegAsignacion(codigoTarea, codigoUi, idUsuario, rol, estado, nota);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        return registro;
+        return repositorio.spRegAsignacion(codigoTarea, codigoUi, idUsuario, rol, estado, nota);
     }
 
     /**
@@ -61,9 +55,7 @@ public class ServicioAsignacion {
      * @return
      */
     public ArrayList obtenerAsignacion(Long idUsuario, Long codigoUI, Long codigoTarea) {
-        ArrayList entidad = repositorio.spGetAsignacion(idUsuario, codigoUI, codigoTarea);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetAsignacion(idUsuario, codigoUI, codigoTarea);
     }
 
     /**
@@ -76,10 +68,7 @@ public class ServicioAsignacion {
      */
     @Transactional
     public ArrayList eliminarAsignacion(Long idUsuario, Long codigoUi, Long codigoTarea) {
-        ArrayList retiro = repositorio.spDelAsignacion(idUsuario, codigoUi, codigoTarea);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelAsignacion(idUsuario, codigoUi, codigoTarea);
     }
 
 }

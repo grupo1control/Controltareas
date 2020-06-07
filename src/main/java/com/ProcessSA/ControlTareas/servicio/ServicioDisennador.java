@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioDisennador;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 
 /**
@@ -24,26 +25,18 @@ public class ServicioDisennador {
      * @return
      */
     public ArrayList obtenerDisennadores() {
-        ArrayList lista = repositorio.spGetDisennadores();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetDisennadores();
     }
 
     /**
      * Ingresa o actualiza un registro de Diseñador
      *
      * @param id
-
      * @return
      */
     @Transactional
     public ArrayList registroDisennador(Long id) {
-        ArrayList registro = repositorio.spRegDisennador(id);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegDisennador(id);
     }
 
 
@@ -54,9 +47,7 @@ public class ServicioDisennador {
      * @return
      */
     public ArrayList obtenerDisennador(Long id) {
-        ArrayList entidad = repositorio.spGetDisennador(id);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetDisennador(id);
     }
 
     /**
@@ -67,9 +58,6 @@ public class ServicioDisennador {
      */
     @Transactional
     public ArrayList eliminarDisennador(Long id) {
-        ArrayList retiro = repositorio.spDelDisennador(id);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelDisennador(id);
     }
 }

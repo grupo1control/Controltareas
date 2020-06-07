@@ -3,8 +3,8 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioEmpresa;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 /**
  * Clase para definir los servicio asociados a Empresa
@@ -15,7 +15,9 @@ public class ServicioEmpresa {
 
     private final RepositorioEmpresa repositorio;
 
-    public ServicioEmpresa(RepositorioEmpresa repositorio) { this.repositorio = repositorio; }
+    public ServicioEmpresa(RepositorioEmpresa repositorio) {
+        this.repositorio = repositorio;
+    }
 
     /**
      * Obtiene una lista de todas las Empresas

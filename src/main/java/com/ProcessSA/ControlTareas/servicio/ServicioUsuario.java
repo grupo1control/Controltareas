@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioUsuario;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 
 /**
@@ -24,10 +25,8 @@ public class ServicioUsuario {
      * @return
      */
     public ArrayList obtenerUsuarios() {
-        ArrayList lista = repositorio.spGetUsuarios();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetUsuarios();
+
     }
 
     /**
@@ -41,11 +40,8 @@ public class ServicioUsuario {
      */
     @Transactional
     public ArrayList registroUsuario(String rut, String nombre, String correo, String clave) {
-        ArrayList registro = repositorio.spRegUsuario(rut, nombre, correo, clave);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegUsuario(rut, nombre, correo, clave);
+
     }
 
     /**
@@ -56,10 +52,8 @@ public class ServicioUsuario {
      */
     @Transactional
     public ArrayList eliminarUsuario(Long id) {
-        ArrayList retiro = repositorio.spDelUsuario(id);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelUsuario(id);
+
     }
 
     /**
@@ -69,9 +63,8 @@ public class ServicioUsuario {
      * @return
      */
     public ArrayList obtenerUsuario(Long id) {
-        ArrayList entidad = repositorio.spGetUsuario(id);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetUsuario(id);
+
     }
 
 }

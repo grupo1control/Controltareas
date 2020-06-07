@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioProyecto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 
 /**
@@ -24,10 +25,8 @@ public class ServicioProyecto {
      * @return
      */
     public ArrayList obtenerProyectos() {
-        ArrayList lista = repositorio.spGetProyectos();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetProyectos();
+
     }
 
     /**
@@ -38,16 +37,12 @@ public class ServicioProyecto {
      * @param inputEstado
      * @param rut_empresa
      * @param id_administrador
-
      * @return
      */
     @Transactional
     public ArrayList registroProyecto(Long codigo, String nombre, String inputEstado, String rut_empresa, Long id_administrador) {
-        ArrayList registro = repositorio.spRegProyecto(codigo, nombre, inputEstado,rut_empresa,id_administrador);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegProyecto(codigo, nombre, inputEstado, rut_empresa, id_administrador);
+
     }
 
     /**
@@ -58,10 +53,8 @@ public class ServicioProyecto {
      */
     @Transactional
     public ArrayList eliminarProyecto(Long codigo) {
-        ArrayList retiro = repositorio.spDelProyecto(codigo);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelProyecto(codigo);
+
     }
 
     /**
@@ -71,9 +64,8 @@ public class ServicioProyecto {
      * @return
      */
     public ArrayList obtenerProyecto(Long codigo) {
-        ArrayList entidad = repositorio.spGetProyecto(codigo);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetProyecto(codigo);
+
     }
 
 }

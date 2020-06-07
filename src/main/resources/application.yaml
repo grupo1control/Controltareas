@@ -7,8 +7,8 @@ spring:
 
   jpa:
     hibernate:
-#      ddl-auto: create-drop
-#      generate-ddl: true
+    #      ddl-auto: create-drop
+    #      generate-ddl: true
     show-sql: true
 
     properties:
@@ -16,5 +16,5 @@ spring:
         proc:
           param_null_passing: true
 
-server:
-  port: 8083
+  server:
+    port: 8083

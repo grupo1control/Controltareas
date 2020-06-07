@@ -3,6 +3,7 @@ package com.ProcessSA.ControlTareas.servicio;
 import com.ProcessSA.ControlTareas.repositorio.RepositorioPersona;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.sql.Date;
 
@@ -15,7 +16,9 @@ public class ServicioPersona {
 
     private final RepositorioPersona repositorio;
 
-    public ServicioPersona(RepositorioPersona repositorio) { this.repositorio = repositorio; }
+    public ServicioPersona(RepositorioPersona repositorio) {
+        this.repositorio = repositorio;
+    }
 
     /**
      * Obtiene una lista de todas las Personas
@@ -23,10 +26,8 @@ public class ServicioPersona {
      * @return
      */
     public ArrayList obtenerPersonas() {
-        ArrayList lista = repositorio.spGetPersonas();
-        System.out.println("Lista de resultados:");
-        lista.forEach(item -> System.out.println(item));
-        return lista;
+        return repositorio.spGetPersonas();
+
     }
 
     /**
@@ -40,11 +41,8 @@ public class ServicioPersona {
      */
     @Transactional
     public ArrayList registroPersona(String rut, String nombre, String apellido, Date natalicio) {
-        ArrayList registro = repositorio.spRegPersona(rut, nombre, apellido, natalicio);
-        System.out.println("Glosa de respuesta: " + registro.get(0));
-        System.out.println("Código de estado: " + registro.get(1));
-        System.out.println("Identificador de salida: " + registro.get(2));
-        return registro;
+        return repositorio.spRegPersona(rut, nombre, apellido, natalicio);
+
     }
 
     /**
@@ -55,10 +53,8 @@ public class ServicioPersona {
      */
     @Transactional
     public ArrayList eliminarPersona(String rut) {
-        ArrayList retiro = repositorio.spDelPersona(rut);
-        System.out.println("Glosa de respuesta: " + retiro.get(0));
-        System.out.println("Código de estado: " + retiro.get(1));
-        return retiro;
+        return repositorio.spDelPersona(rut);
+
     }
 
     /**
@@ -68,9 +64,8 @@ public class ServicioPersona {
      * @return
      */
     public ArrayList obtenerPersona(String rut) {
-        ArrayList entidad = repositorio.spGetPersona(rut);
-        System.out.println("Resultado: \n" + entidad);
-        return entidad;
+        return repositorio.spGetPersona(rut);
+
     }
 
 }
