@@ -21,7 +21,9 @@ Procedimiento para arrancar la aplicacion
 	-netstat -ao | find "8080"
 	-ctrl+c
 	-Taskkill /PID  nroTarea /F
-	O
+	
+	O tambien
+	
 	-netstat -ano | findstr :8080
 	-tskill nroTarea
 
