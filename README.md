@@ -6,13 +6,15 @@ Prerequisitos
 
 -IDE (Neatbeans, IntelliJ o similares)
 
--Maben
+-Maven
 
 Procedimiento para arrancar la aplicacion
 
 1.- Ejecutar Script que se encuentran dentro de la carpeta BD en orden secuencial (en caso de ya tener creada la base de datos, Ejecutar solo script 2,3,4)
 
-2.- Una vez descargado el proyecto en local, compilar en IntelliJ (Build ctrl+F9) y correr aplicacion.
+2.- Una vez descargado el proyecto en local, compilar y correr aplicacion utilizando el comando:
+
+mvnw clean install spring-boot:run
 
 3.- ingresar a Swagger a trtaves de la ruta local http://localhost:8083/swagger-ui.html (Aplicacion configurada para correr en puerto 8083 por defecto)
 
