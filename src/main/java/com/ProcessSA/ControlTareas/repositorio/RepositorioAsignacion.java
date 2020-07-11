@@ -18,7 +18,6 @@ import java.util.List;
  * Clase para definir las operaciones de BD relacionadas con Asignacion
  */
 @Repository
-
 public class RepositorioAsignacion {
     private final EntityManager gestorDeEntidad;
 

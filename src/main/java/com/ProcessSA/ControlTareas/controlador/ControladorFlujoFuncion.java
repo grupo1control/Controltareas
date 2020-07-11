@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/flujo-funcion")
 @Api(tags = "Flujo Funcion")
-
 public class ControladorFlujoFuncion {
     private final ServicioFlujoFuncion servicio;
 

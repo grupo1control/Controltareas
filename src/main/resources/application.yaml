@@ -16,5 +16,5 @@ spring:
         proc:
           param_null_passing: true
 
-  server:
-    port: 8083
+server:
+  port: 8083

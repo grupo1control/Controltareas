@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/disennador")
 @Api(tags = "Disennador")
-
 public class ControladorDisennador {
 
     private final ServicioDisennador servicio;
