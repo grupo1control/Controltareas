@@ -1,5 +1,7 @@
 # ControlTareas
 
+UPDATE: API publicada en AWS: http://3.128.29.238:8000/swagger-ui.html
+
 Prerrequisitos
 
 -Base de datos Oracle 11g o superior
